@@ -4,7 +4,8 @@ import java.util.UUID;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 
 import eu.decentsoftware.holograms.api.DHAPI;
@@ -17,32 +18,44 @@ public class JPlayer {
 	private String name;
 	private int score;
 	private Hologram h;
-	private int x;
+	private Location buzzer;
 	
 	
 	//Hologram
 	
-	public JPlayer(Player p, Hologram holo, int x1) {
+	public JPlayer(Player p, Hologram holo, Location buzzer) {
 		this.name = p.getName();
 		this.uuid = p.getUniqueId();
 		this.score = 0;
 		this.h = holo;
-		this.x = x1;
-		//Hologram
+		this.buzzer = buzzer;
+		// Move to under buzzer
+		this.buzzer.add(0, -2, 0);
 	}
 	
-	public void buzzIn(World world) {
-		Location l = new Location(world, x, 38, -14);
-		l.getBlock().setType(Material.REDSTONE_BLOCK);
-		l.add(-1, 0, 0);
-		l.getBlock().setType(Material.REDSTONE_BLOCK);
+	public void buzzIn() {
+
+		Block ub = this.buzzer.getBlock();
+		ub.setType(Material.REDSTONE_BLOCK);
+		// Replace neighbouring air blocks with redstone blocks
+		for (BlockFace face : BlockFace.values()){
+			Block b = this.buzzer.getBlock().getRelative(face);
+			if(b.getType().equals(Material.AIR)) {
+				b.setType(Material.REDSTONE_BLOCK);
+			};
+		}
 	}
 	
-	public void buzzOut(World world) {
-		Location l = new Location(world, x, 38, -14);
-		l.getBlock().setType(Material.AIR);
-		l.add(-1, 0, 0);
-		l.getBlock().setType(Material.AIR);
+	public void buzzOut() {
+		Block ub = this.buzzer.getBlock();
+		ub.setType(Material.AIR);
+		// Replace neighbouring air blocks with redstone blocks
+		for (BlockFace face : BlockFace.values()){
+			Block b = this.buzzer.getBlock().getRelative(face);
+			if(b.getType().equals(Material.REDSTONE_BLOCK)) {
+				b.setType(Material.AIR);
+			};
+		}
 	}
 	
 	public int getScore() {

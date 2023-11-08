@@ -55,6 +55,7 @@ public class Game {
 	
 	Hologram qHolo;
 	Hologram[] pHolos;
+	Location[] buzzers;
 	
 	private Main plugin;
 	
@@ -77,13 +78,6 @@ public class Game {
 		this.finalBets = new HashMap<JPlayer, Integer>();
 		this.finalAnswers = new HashMap<JPlayer, String>();
 		
-		this.qHolo = this.loadHologram("question");
-		this.pHolos = new Hologram[3];
-		for(int i = 0; i < pHolos.length; i++) {
-			this.pHolos[i] = this.loadHologram("player" + (i + 1));
-			DHAPI.addHologramLine(this.pHolos[i], Utils.chat("$0"));
-		}
-		
 		this.direction = plugin.getConfig().getString("board_top_left.horizontal");
 		this.offset = plugin.getConfig().getInt("board_top_left.out_offset");
 		this.world = Bukkit.getServer().getWorld(plugin.getConfig().getString("board_top_left.world"));
@@ -91,6 +85,19 @@ public class Game {
 		this.y = plugin.getConfig().getInt("board_top_left.y");
 		this.z = plugin.getConfig().getInt("board_top_left.z");
 		
+		this.qHolo = this.loadHologram("question");
+		this.pHolos = new Hologram[3];
+		this.buzzers = new Location[3];
+		for(int i = 0; i < pHolos.length; i++) {
+			// Hologram
+			this.pHolos[i] = this.loadHologram("player" + (i + 1));
+			DHAPI.addHologramLine(this.pHolos[i], Utils.chat("$0"));
+			// Buzzer location
+			int bx = plugin.getConfig().getInt("buzzer.player" + (i + 1) + ".x");
+			int by = plugin.getConfig().getInt("buzzer.player" + (i + 1) + ".y");
+			int bz = plugin.getConfig().getInt("buzzer.player" + (i + 1) + ".z");
+			this.buzzers[i] = new Location(this.world, bx, by, bz);
+		}
 	}
 
 	
@@ -98,9 +105,7 @@ public class Game {
 		double x = plugin.getConfig().getDouble("hologram." + name + ".x");
 		double y = plugin.getConfig().getDouble("hologram." + name + ".y");
 		double z = plugin.getConfig().getDouble("hologram." + name + ".z");
-		String worlds = plugin.getConfig().getString("hologram." + name + ".world");
-		World w = Bukkit.getWorld(worlds);
-		Location l = new Location(w, x, y, z);
+		Location l = new Location(world, x, y, z);
 		
 		Hologram h = DHAPI.createHologram(name, l);
 		return h;
@@ -146,7 +151,7 @@ public class Game {
 	public boolean addPlayer(Player p) {
 		for(int i = 0; i < this.players.length; i++) {
 			if(this.players[i] == null) {
-				JPlayer j = new JPlayer(p, pHolos[i], (-285 + (3*i))); 
+				JPlayer j = new JPlayer(p, pHolos[i], buzzers[i]); 
 				this.players[i] = j;
 				return true;
 			}
@@ -348,7 +353,7 @@ public void loadBoard(String board_name) {
 		if(q.isDailyDouble()) {
 			this.buzzersOn = false;
 			this.playerBuzzed = this.playerInControl;
-			this.playerBuzzed.buzzIn(world);
+			this.playerBuzzed.buzzIn();
 			this.playersInQuestion.add(this.playerInControl);
 			//Daily double shit (ask question and set new worth)
 			DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("DAILY DOUBLE:")));
@@ -436,7 +441,7 @@ public void loadBoard(String board_name) {
 		
 		if(this.finalAnswers.size() == this.players.length) {		
 			Bukkit.broadcastMessage(Utils.chat("&aAll players have locked in their answer!"));
-			world.playSound(qHolo.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1.0F, 1.0F);
+			this.world.playSound(qHolo.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1.0F, 1.0F);
 			
 			//Re-add all lines except last and replace last line
 			DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("&7FINAL JEOPARDY")));
@@ -463,7 +468,7 @@ public void loadBoard(String board_name) {
 					score = j.getScore();
 				}
 			}
-			this.playerBuzzed.buzzIn(world);
+			this.playerBuzzed.buzzIn();
 			Bukkit.broadcastMessage(Utils.chat("&b" + this.playerBuzzed.getName() + " has answered: &l" + this.finalAnswers.get(this.playerBuzzed)));
 			
 	}
@@ -488,7 +493,7 @@ public void loadBoard(String board_name) {
 			this.playerBuzzed.removeScore(bet);
 			Bukkit.broadcastMessage(Utils.chat("&c" + this.playerBuzzed.getName() + " just lost " + Utils.getScoreString(bet)));
 		}
-		this.playerBuzzed.buzzOut(world);
+		this.playerBuzzed.buzzOut();
 		this.finalAnswers.remove(this.playerBuzzed);
 		this.finalBets.remove(this.playerBuzzed);
 		
@@ -550,7 +555,7 @@ public void loadBoard(String board_name) {
 		if(wasRight) {
 			this.playerBuzzed.addScore(this.currentQuestion.getWorth());
 			this.playerInControl = this.playerBuzzed;
-			this.playerBuzzed.buzzOut(world);
+			this.playerBuzzed.buzzOut();
 			this.playerBuzzed = null;
 			this.revealAnswer();
 			//Empty set
@@ -558,7 +563,7 @@ public void loadBoard(String board_name) {
 		} else {
 			this.playerBuzzed.removeScore(this.currentQuestion.getWorth());
 			this.playersInQuestion.remove(this.playerBuzzed);
-			this.playerBuzzed.buzzOut(world);
+			this.playerBuzzed.buzzOut();
 			this.playerBuzzed = null;
 			if(this.playersInQuestion.isEmpty()) {
 				this.revealAnswer();
@@ -609,7 +614,7 @@ public void loadBoard(String board_name) {
 	
 	public void coverScreen(Material m, int offsetM) {
 		Location l;
-		for(int i = -2; i < 8; i++) {
+		for(int i = -3; i < 9; i++) {
 			for(int j = 0; j < 5; j++) {
 				
 				if(direction.equals("x")) {

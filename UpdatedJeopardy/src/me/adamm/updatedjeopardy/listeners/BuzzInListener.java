@@ -42,7 +42,7 @@ public class BuzzInListener implements Listener {
 		}
 		
 		game.setPlayerBuzzed(j);
-		j.buzzIn(pressLocation.getWorld());
+		j.buzzIn();
 		Bukkit.broadcastMessage(Utils.chat("&b&l" + j.getName() + " &r&bhas buzzed in!"));
 		
 	}
