@@ -1,0 +1,32 @@
+name: Jeopardy
+version: 0.2
+author: Adamm
+main: me.adamm.updatedjeopardy.Main
+description: A plugin for the jeopardy gameshow in Minecraft!
+api-version: 1.20
+depend: [DecentHolograms]
+commands:
+   jactivate:
+      description: Activates the buzzers
+   janswer:
+      description: Validates an answer to a question
+   jask:
+      description: Asks a question
+   jbet:
+      description: Adds a bet to the daily double
+   jload:
+      description: Loads a jeopardy board from the config
+   jplayer:
+      description: Adds and removes players from the game
+   jreveal:
+      description: Reveals an answer
+   jreset:
+      description: Resets the game
+   jfinal:
+      description: Command for the final jeopardy
+   jadd:
+      description: Command for adding points to a player
+   jset:
+      description: Command for setting points of a player
+   jremove:
+      description: Command for removing points from a player
