@@ -34,25 +34,7 @@ public class BuzzInListener implements Listener {
 		
 		Location pressLocation = e.getClickedBlock().getLocation();
 		
-		if(!(pressLocation.getBlockY() == 40 && pressLocation.getBlockZ() == -14)) {
-			return;
-		}
-		
-		JPlayer j = null;
-		
-		if(pressLocation.getBlockX() == -286) {
-			j = game.getPlayerByIndex(0);
-		}
-		else if(pressLocation.getBlockX() == -283) {
-			j = game.getPlayerByIndex(1);
-		}
-		else if(pressLocation.getBlockX() == -280) {
-			j = game.getPlayerByIndex(2);
-		}
-		
-		if(j == null) {
-			return;
-		}
+		JPlayer j = game.getPlayer(e.getPlayer().getUniqueId());
 		
 		if(!game.buzzersOn() || game.getPlayerBuzzed() != null || !(game.getPlayersInQuestion().contains(j))) {
 			e.setCancelled(true);
