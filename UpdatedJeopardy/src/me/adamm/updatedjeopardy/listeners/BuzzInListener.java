@@ -1,7 +1,6 @@
 package me.adamm.updatedjeopardy.listeners;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Tag;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,8 +30,6 @@ public class BuzzInListener implements Listener {
 		
 		if(!(e.getAction().equals(Action.RIGHT_CLICK_BLOCK) && Tag.BUTTONS.isTagged(e.getClickedBlock().getType()))) {return;}
 		Game game = plugin.getGame();
-		
-		Location pressLocation = e.getClickedBlock().getLocation();
 		
 		JPlayer j = game.getPlayer(e.getPlayer().getUniqueId());
 		

@@ -18,6 +18,7 @@ import me.adamm.updatedjeopardy.commands.JRevealCommand;
 import me.adamm.updatedjeopardy.commands.JSetCommand;
 import me.adamm.updatedjeopardy.listeners.BuzzInListener;
 import me.adamm.updatedjeopardy.listeners.FrameBreakListener;
+import me.adamm.updatedjeopardy.listeners.PreventRotationListener;
 
 public class Main extends JavaPlugin {
 	
@@ -27,7 +28,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		
 		this.game = new Game(this);
-		game.coverScreen(Material.AIR, 2);
+		game.coverScreen(Material.AIR, 3);
 		
 		saveDefaultConfig();
 		new JLoadCommand(this);
@@ -45,6 +46,7 @@ public class Main extends JavaPlugin {
 		
 		new BuzzInListener(this);
 		new FrameBreakListener(this);
+		new PreventRotationListener(this);
 		
 		// Jadd, Jremove, Jset (score ones)
 		// Make stuff not only pop up in the chat
