@@ -16,6 +16,7 @@ import me.adamm.updatedjeopardy.commands.JRemoveCommand;
 import me.adamm.updatedjeopardy.commands.JResetCommand;
 import me.adamm.updatedjeopardy.commands.JRevealCommand;
 import me.adamm.updatedjeopardy.commands.JSetCommand;
+import me.adamm.updatedjeopardy.commands.JSkipCommand;
 import me.adamm.updatedjeopardy.listeners.BuzzInListener;
 import me.adamm.updatedjeopardy.listeners.FrameBreakListener;
 import me.adamm.updatedjeopardy.listeners.PreventRotationListener;
@@ -43,16 +44,11 @@ public class Main extends JavaPlugin {
 		new JAddCommand(this);
 		new JSetCommand(this);
 		new JRemoveCommand(this);
+		new JSkipCommand(this);
 		
 		new BuzzInListener(this);
 		new FrameBreakListener(this);
 		new PreventRotationListener(this);
-		
-		// Jadd, Jremove, Jset (score ones)
-		// Make stuff not only pop up in the chat
-		// Holograms above peoples heads to do stuff
-		// No light up if someone is buzzed
-		// Buzzers attached to table
 		
 	}
 	

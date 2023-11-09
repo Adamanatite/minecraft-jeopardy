@@ -127,6 +127,17 @@ public class Game {
 		return null;
 	}
 	
+	public JPlayer getPlayerByName(String name) {
+		
+		for(JPlayer j : this.players) {
+			if(j != null && j.getName().equalsIgnoreCase(name)) {
+				return j;
+			}
+		}
+		
+		return null;
+	}
+	
 	public JPlayer getPlayerBuzzed() {
 		return playerBuzzed;
 	}
@@ -470,11 +481,6 @@ public void loadBoard(String board_name) {
 			}
 			this.playerBuzzed.buzzIn();
 			Bukkit.broadcastMessage(Utils.chat("&b" + this.playerBuzzed.getName() + " has answered: &l" + this.finalAnswers.get(this.playerBuzzed)));
-	        for(Player p : Bukkit.getOnlinePlayers()) {
-	        	if(p.getWorld().equals(world)) {
-	        	p.sendTitle(Utils.chat("&b" + this.playerBuzzed.getName() + " has answered: &l" + this.finalAnswers.get(this.playerBuzzed)), "", 1, 20, 1);
-	        	}
-	        }
 	}
 	
 	public JPlayer getPlayerByIndex(int i) {
@@ -562,7 +568,6 @@ public void loadBoard(String board_name) {
 			this.playerBuzzed.buzzOut();
 			this.playerBuzzed = null;
 			this.revealAnswer();
-			//Empty set
 			
 		} else {
 			this.playerBuzzed.removeScore(this.currentQuestion.getWorth());
@@ -611,8 +616,26 @@ public void loadBoard(String board_name) {
 		    	DHAPI.setHologramLines(qHolo, Arrays.asList(""));
 		        coverScreen(Material.AIR, 3);
 		    }
-		}, 80L);
+		}, 80L);	
+	}
+	
+	public void skipQuestion() {
 		
+		if(this.currentQuestion == null) {return;}
+		
+		if(this.getPlayerBuzzed() != null) {
+			this.getPlayerBuzzed().buzzOut();
+			this.playerBuzzed = null;
+		}
+		
+		for(JPlayer j : this.players) {
+			this.playersInQuestion.remove(j);
+		}
+
+		this.currentQuestion = null;
+		
+		DHAPI.setHologramLines(qHolo, Arrays.asList(""));
+		coverScreen(Material.AIR, 3);	
 	}
 	
 	
@@ -631,12 +654,8 @@ public void loadBoard(String board_name) {
 					l = new Location(world, x+(offset*offsetM), y-j, z-i);	
 				}
 				
-				l.getBlock().setType(m);
-				
+				l.getBlock().setType(m);	
 			}
 		}
-
-	}
-	
-	
+	}	
 }

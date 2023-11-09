@@ -29,7 +29,4 @@ public class PreventRotationListener implements Listener {
 		}
 	}
 	
-
-
-	
 }

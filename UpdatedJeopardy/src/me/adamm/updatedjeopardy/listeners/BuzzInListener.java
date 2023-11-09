@@ -16,7 +16,6 @@ public class BuzzInListener implements Listener {
 	/*Reference to main class*/
 	private Main plugin;
 	
-	
 	/*Class constructor*/
 	public BuzzInListener(Main plugin) {
 		/*Register listener with plugin*/
@@ -43,8 +42,5 @@ public class BuzzInListener implements Listener {
 		Bukkit.broadcastMessage(Utils.chat("&b&l" + j.getName() + " &r&bhas buzzed in!"));
 		
 	}
-	
 
-
-	
 }

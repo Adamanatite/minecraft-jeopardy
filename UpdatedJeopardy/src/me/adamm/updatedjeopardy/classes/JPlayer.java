@@ -104,7 +104,4 @@ public class JPlayer {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
 }

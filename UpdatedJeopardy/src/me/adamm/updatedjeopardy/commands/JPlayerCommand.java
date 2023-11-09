@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 
 import me.adamm.updatedjeopardy.Main;
 import me.adamm.updatedjeopardy.classes.Game;
+import me.adamm.updatedjeopardy.classes.JPlayer;
 import me.adamm.updatedjeopardy.classes.Utils;
 
 public class JPlayerCommand implements CommandExecutor {
@@ -48,6 +49,32 @@ public class JPlayerCommand implements CommandExecutor {
 			}
 			
 			sender.sendMessage(output.substring(0, output.length() - 2));
+			return true;
+		}
+		
+		if(args.length == 3 && args[0].equalsIgnoreCase("swap")) {
+			if(!sender.isOp()) {
+				sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
+				return false;
+			}
+			
+			JPlayer j = game.getPlayerByName(args[1]);
+			if(j == null) {
+				sender.sendMessage(Utils.chat("&4Couldn't find player " + args[1] + " in the game"));
+				sender.sendMessage(Utils.chat("&4Usage: /jplayer swap (oldPlayer) (newPlayer)"));
+				return false;
+			}
+			
+			Player p = Bukkit.getPlayer(args[2]);
+			if(p == null) {
+				sender.sendMessage(Utils.chat("&4Couldn't find player " + args[2]));
+				sender.sendMessage(Utils.chat("&4Usage: /jplayer swap (oldPlayer) (newPlayer)"));
+				return false;
+			}
+			
+			j.setName(p.getName());
+			j.setUuid(p.getUniqueId());
+			sender.sendMessage(Utils.chat("&aSuccessfully replaced " + args[2]+  " with " + args[1] + "!"));
 			return true;
 		}
 		

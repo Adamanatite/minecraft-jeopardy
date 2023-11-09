@@ -30,3 +30,5 @@ commands:
       description: Command for setting points of a player
    jremove:
       description: Command for removing points from a player
+   jskip:
+      description: Command for skipping an active question
