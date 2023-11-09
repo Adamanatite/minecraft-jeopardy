@@ -398,7 +398,7 @@ public void loadBoard(String board_name) {
 		coverScreen(Material.BLUE_CONCRETE, 3);
 		String fCategory = plugin.getConfig().getString("final.Category");
 		DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("&7FINAL JEOPARDY")));
-		DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("Category: &l" + fCategory)));
+		DHAPI.addHologramLine(qHolo, Utils.chat("Category: &l" + fCategory));
 		DHAPI.addHologramLine(qHolo, Utils.chat("Bet up to how much you have (or $1000 if you have less)"));
 		DHAPI.addHologramLine(qHolo, Utils.chat("An incorrect answer will lose you this amount"));
 		DHAPI.addHologramLine(qHolo, Utils.chat("Place a bet using &l/jbet <amount>"));

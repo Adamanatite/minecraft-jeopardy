@@ -6,7 +6,7 @@ board_top_left:
    horizontal: "-x"
    out_offset: -1
 
-max_char_length: 50
+max_char_length: 60
 max_question_lines: 5
 
 hologram:
@@ -83,29 +83,29 @@ first_board:
          Answer: "Spiritomb and Sableye"
          Worth: 400
       5:
-         Question: "According to its Pokedex entry, people put this “Zen charm” Pokemon’s hot droppings in their clothes for warmth."
+         Question: "According to its Pokedex entry, people put this 'Zen charm' Pokemon's hot droppings in their clothes for warmth."
          Answer: "Darumaka"
          Worth: 500
    cat_3:
       Name: "Dungeons & Dragons"
       1:
-         Question: "This gelatinous cube is a type of enemy in Dungeons and Dragons."
+         Question: "This gelatinous cube is a type of enemy in Dungeons & Dragons."
          Answer: "Gelatinous Cube"
          Worth: 100
       2:
-         Question: "This class in D&D has an ability called 'Rage'"
+         Question: "This class in Dungeons & Dragons has an ability called 'Rage'"
          Answer: "Barbarian"
          Worth: 200
       3:
-         Question: "This is the amount of dice used to play Dungeons and Dragons."
+         Question: "This is the amount of dice used to play Dungeons & Dragons."
          Answer: "7"
          Worth: 300
       4:
-         Question: "This is Dustin's D&D class in Stranger Things"
+         Question: "This is Dustin's Dungeons & Dragons class in Stranger Things"
          Answer: "Bard"
          Worth: 400
       5:
-         Question: "This creature chases the main characters through a maze in the 2022 D&D film."
+         Question: "This creature chases the main characters through a maze in the 2022 Dungeons & Dragons film."
          Answer: "Displacer Beast"
          Worth: 500
    cat_4:
@@ -200,23 +200,23 @@ second_board:
    cat_2:
       Name: "On This Day"
       1:
-         Question: "China: June 4th 1989"
+         Question: "China: June 4th 1989."
          Answer: "Nothing :)"
          Worth: 200
       2:
-         Question: "Monarchs: September 8th 2022"
+         Question: "Monarchs: September 8th 2022."
          Answer: "Lizzie kicked the bucket"
          Worth: 400
       3:
-         Question: "Movies: July 21st 2023"
+         Question: "Movies: July 21st 2023."
          Answer: "Barbenheimer day"
          Worth: 600
       4:
-         Question: "Gaming: September 17th 2013"
+         Question: "Gaming: September 17th 2013."
          Answer: "GTA V Release"
          Worth: 800
       5:
-         Question: "Youtube: 17th December 2020"
+         Question: "Youtube: 17th December 2020."
          Answer: "Doggomain uploaded 'Wilbur Soot - Your New Boyfriend (Noteblock Edition)"
          Worth: 1000
    cat_3:
@@ -253,7 +253,7 @@ second_board:
          Answer: "Actually it was called the Doggo SMP"
          Worth: 400
       3:
-         Question: "Lady Gaga's Pokerface:Po-po-po-poker face, fu-fu-fuck her face (mum-mum-mum-mah)Po-po-po-poker face, fu-fu-fuck her face (mum-mum-mum-mah)I want to roll with him, a hard pair we will beA little gambling is fun when you're with me (I love it)."
+         Question: "Lady Gaga's Pokerface: Po-po-po-poker face, fu-fu-fuck her face (mum-mum-mum-mah Po-po-po-poker face, fu-fu-fuck her face (mum-mum-mum-mah)I want to roll with him, a hard pair we will be A little gambling is fun when you're with me (I love it)."
          Answer: "Actually she says 'wanna roll with him'"
          Worth: 600
       4:
@@ -305,7 +305,7 @@ second_board:
          Answer: "Aristotle"
          Worth: 800
       5:
-         Question: "This is the contrapositive of the statement 'If it is raining, I get wet’"
+         Question: "This is the contrapositive of the statement 'If it is raining, I get wet'"
          Answer: "If I don't get wet, it's not raining"
          Worth: 1000
          
