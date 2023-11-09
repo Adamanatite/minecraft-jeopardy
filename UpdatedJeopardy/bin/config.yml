@@ -6,315 +6,310 @@ board_top_left:
    horizontal: "-x"
    out_offset: -1
 
-max_char_length: 45
+max_char_length: 50
+max_question_lines: 5
 
 hologram:
    player1:
       x: 62.000
       y: 134.500
       z: -36.500
-      world: "jeopardyworld"
    player2:
       x: 65.000
       y: 134.500
       z: -36.500
-      world: "jeopardyworld"
    player3:
       x: 68.000
       y: 134.500
       z: -36.500
-      world: "jeopardyworld"
    question:
       x: 65.0
       y: 135.75
       z: -31.5
-      world: "jeopardyworld"
 
 buzzer:
    player1:
       x: 62
       y: 133
       z: -37
-      world: "jeopardyworld"
    player2:
       x: 65
       y: 133
       z: -37
-      world: "jeopardyworld"
    player3:
       x: 68
       y: 133
       z: -37
-      world: "jeopardyworld"
 
 first_board:
    cat_1:
-      Name: "Weebs"
+      Name: "Binding of Isaac"
       1:
-         Question: "This transformation from Dragon Ball Z makes a character 50x more powerful, and makes their hair blonde and spiky"
-         Answer: "Super saiyan"
+         Question: "Isaac is based on this biblical character."
+         Answer: "Isaac"
          Worth: 100
       2:
-         Question: "The villain Dio Brando appears in this anime/manga series"
-         Answer: "JoJo’s Bizarre Adventure"
+         Question: "This item is the only one that can appear after the item pool is exhausted."
+         Answer: "Breakfast"
          Worth: 200
       3:
-         Question: "This is the highest selling manga series of all time"
-         Answer: "One piece"
-         Worth: 300
-      4:
-         Question: "These are the names of the three walls in Attack on Titan"
-         Answer: "Sina, Rose and Maria"
-         Worth: 400
-      5:
-         Question: "The servant Caster in Fate/Zero was inspired by this French nobleman"
-         Answer: "Gilles de Rais"
-         Worth: 500
-   cat_2:
-      Name: "Borders"
-      1:
-         Question: "This is the border of a circle"
-         Answer: "Circumference"
-         Worth: 100
-      2:
-         Question: "Handsome Jack is from this video game series "
-         Answer: "Borderlands"
-         Worth: 200
-      3:
-         Question: "These 2 countries share the longest total land border"
-         Answer: "USA and Canada"
-         Worth: 300
-      4:
-         Question: "This continent is home to a four nation quadripoint (technically 2 tripoints that are very close)"
-         Answer: "Africa"
-         Worth: 400
-      5:
-         Question: "These 2 countries share the longest continuous land border "
-         Answer: "Russia and Kazakhstan"
-         Worth: 500
-   cat_3:
-      Name: "How Do I Craft This Again?"
-      1:
-         Question: "This item is crafted using sand and gunpowder"
-         Answer: "TNT"
-         Worth: 100
-      2:
-         Question: "This item had its crafting recipe removed, and can now only be found in chests e.g. from ruined portals"
-         Answer: "Enchanted Golden Apple"
-         Worth: 200
-      3:
-         Question: "To craft the most filling food item in the game, the player must pick this flower"
-         Answer: "Dandelion or Blue Orchid"
-         Worth: 300
-      4:
-         Question: "These two items can be combined to craft granite"
-         Answer: "Diorite and Nether Quartz"
-         Worth: 400
-      5:
-         Question: "This block can be crafted using 81 of another block"
-         Answer: "Blue ice"
-         Worth: 500
-   cat_4:
-      Name: "Films"
-      1:
-         Question: "This is the director of the newest Spiderman trilogy"
-         Answer: "Jon Watts"
-         Worth: 100
-      2:
-         Question: "This film won Best Picture at the Oscars this year"
-         Answer: "Nomadland"
-         Worth: 200
-      3:
-         Question: "This is how many Sharknado films have been made"
+         Question: "This is the floor number on which you would fight Mom."
          Answer: "6"
          Worth: 300
       4:
-         Question: "What make of car is most commonly used by James Bond"
-         Answer: "Aston Martin DB5"
+         Question: "This is the number of Tarot cards available in the game."
+         Answer: "22"
          Worth: 400
       5:
-         Question: "This country is where Jurassic Park is set"
-         Answer: "Costa Rica"
+         Question: "These are my top 5 favourite items in the game (Name one)"
+         Answer: "Dr Fetus, Ipecac, Polyphemus, D6, Mutant Spider"
+         Worth: 500
+   cat_2:
+      Name: "Pokemon"
+      1:
+         Question: "This pokemon is based on a seal."
+         Answer: "Seel"
+         Worth: 100
+      2:
+         Question: "This generation of Pokemon games first featured the Johto region."
+         Answer: "Generation 2 (Gold/Silver/Crystal)"
+         Worth: 200
+      3:
+         Question: "This is the first pokemon Ash catches in the Pokemon series."
+         Answer: "Caterpie"
+         Worth: 300
+      4:
+         Question: "This pokemon had no weaknesses before the introduction of the fairy type in generation 6."
+         Answer: "Spiritomb and Sableye"
+         Worth: 400
+      5:
+         Question: "According to its Pokedex entry, people put this “Zen charm” Pokemon’s hot droppings in their clothes for warmth."
+         Answer: "Darumaka"
+         Worth: 500
+   cat_3:
+      Name: "Dungeons & Dragons"
+      1:
+         Question: "This gelatinous cube is a type of enemy in Dungeons and Dragons."
+         Answer: "Gelatinous Cube"
+         Worth: 100
+      2:
+         Question: "This class in D&D has an ability called 'Rage'"
+         Answer: "Barbarian"
+         Worth: 200
+      3:
+         Question: "This is the amount of dice used to play Dungeons and Dragons."
+         Answer: "7"
+         Worth: 300
+      4:
+         Question: "This is Dustin's D&D class in Stranger Things"
+         Answer: "Bard"
+         Worth: 400
+      5:
+         Question: "This creature chases the main characters through a maze in the 2022 D&D film."
+         Answer: "Displacer Beast"
+         Worth: 500
+   cat_4:
+      Name: "Bored Games"
+      1:
+         Question: "A chess board has this many squares."
+         Answer: "64"
+         Worth: 100
+      2:
+         Question: "Where would you end up in Monopoly if you rolled 3 double sixes from Go."
+         Answer: "Jail"
+         Worth: 200
+      3:
+         Question: "In this board game you play as a raccoon building a business tycoon."
+         Answer: "Raccoon Tycoon"
+         Worth: 300
+      4:
+         Question: "This letter in scrabble is worth 5 points."
+         Answer: "K"
+         Worth: 400
+      5:
+         Question: "This board game has the same name as a play by Agatha Christie."
+         Answer: "Mousetrap"
          Worth: 500
    cat_5:
-      Name: "Tech Support"
+      Name: "Bowling"
       1:
-         Question: "Facebook recently changed its name to this word, meaning self-referential "
-         Answer: "Meta"
+         Question: "This country's flag features a white moon and star on a red background."
+         Answer: "Turkey"
          Worth: 100
       2:
-         Question: "This type of volatile memory is used to store the data currently being used on a computer"
-         Answer: "RAM"
+         Question: "This unions strike ended yesterday."
+         Answer: "SAG AFTRA"
          Worth: 200
       3:
-         Question: "This is what NFT stands for"
-         Answer: "Non-Fungible Token"
+         Question: "The titular character of this film is also known as 'The dude'"
+         Answer: "The Big Lebowski"
          Worth: 300
       4:
-         Question: "This test is used to determine if a computer can successfully imitate a human being"
-         Answer: "Turing test"
+         Question: "This band had hits with '1985' and 'Girl All the Bad Guys Want'"
+         Answer: "Bowling for Soup"
          Worth: 400
       5:
-         Question: "This english mathematician is credited as being the first ever computer programmer"
-         Answer: "Ada Lovelace"
+         Question: "This book includes a detailed story of a prince losing his virginity."
+         Answer: "Spare"
          Worth: 500
    cat_6:
-      Name: "YouTube Rewind"
+      Name: "Before and After"
       1:
-         Question: "This twitch streamer moved to YouTube this year, and got banned within a week"
-         Answer: "Ludwig"
+         Question: "This Taylor Swift album is a tragic event that happened in September 2001."
+         Answer: "1989/11"
          Worth: 100
       2:
-         Question: "This YouTuber recreated Squid Game with a $456,000 prize pool"
-         Answer: "Mr Beast"
+         Question: "This creator of the atomic bomb is a champion in League of Legends."
+         Answer: "Oppenheimerdinger"
          Worth: 200
       3:
-         Question: "This is the most viewed video posted in 2021 (Not counting music videos)"
-         Answer: "$456,000 Squid Game In Real Life!"
+         Question: "This Disney+ series about a Welsh football team is a musical by Lin Manuel Miranda."
+         Answer: "Welcome to Wrexhamilton"
          Worth: 300
       4:
-         Question: "This famous video from 16 years ago recently changed it's description to protest the removal of dislikes"
-         Answer: "Me at the zoo"
+         Question: "This vodka is another word for children."
+         Answer: "Smirnoffspring"
          Worth: 400
       5:
-         Question: "This is the most viewed premiere of 2021"
-         Answer: "Butter - BTS"
+         Question: "This horror comedy about animatronics, features a cartoonist who kidnaps his own father."
+         Answer: "Five Nights at Freddy Got Fingered"
          Worth: 500
 second_board:
    cat_1:
-      Name: "Before and After"
+      Name: "Connect 4"
       1:
-         Question: "This job based social media is an Asian country bordering Bangladesh"
-         Answer: "LinkedIndonesia"
+         Question: "John, Paul, George, Ringo."
+         Answer: "The Beatles"
          Worth: 200
       2:
-         Question: "This musical featuring a boy who says 'Please Sir, I want some more' is the city the beatles are from"
-         Answer: "Oliverpool"
+         Question: "Whiskey, Tango, Echo, Golf."
+         Answer: "NATO phonetic alphabet letters"
          Worth: 400
       3:
-         Question: "This batman villain is the second entry in the Pokedex"
-         Answer: "Poison Ivysaur"
+         Question: "Cheap Fucking Knockoff, Gramps, Fucking disappointment, The Only Man In The Sky."
+         Answer: "Homelander's nicknames"
          Worth: 600
       4:
-         Question: "This term for a lack of harmony is a Rex Orange County song"
-         Answer: "Discorduroy Dreams"
+         Question: "Manhattan, Spa, Fiji, Efes."
+         Answer: "Drinks named after places"
          Worth: 800
       5:
-         Question: "This franchise featuring an armless protagonist is a 2013 DC film"
-         Answer: "Rayman Of Steel"
+         Question: "Shamrock, Razzmatazz, Tickle Me Pink, Jazzberry Jam."
+         Answer: "Crayola Colours"
          Worth: 1000
    cat_2:
-      Name: "Christmas Cracker"
+      Name: "On This Day"
       1:
-         Question: "This person is the motherfuckin' president"
-         Answer: "Joe Byron"
+         Question: "China: June 4th 1989"
+         Answer: "Nothing :)"
          Worth: 200
       2:
-         Question: "This actress is known for playing characters that shouldn't be white"
-         Answer: "Scarlett Johansson"
+         Question: "Monarchs: September 8th 2022"
+         Answer: "Lizzie kicked the bucket"
          Worth: 400
       3:
-         Question: "Contrary to popular belief, this disney star turned pop singer is actually white"
-         Answer: "Ariana Grande"
+         Question: "Movies: July 21st 2023"
+         Answer: "Barbenheimer day"
          Worth: 600
       4:
-         Question: "This film featured RDJ not being white"
-         Answer: "Tropic Thunder"
+         Question: "Gaming: September 17th 2013"
+         Answer: "GTA V Release"
          Worth: 800
       5:
-         Question: "This person tweeted 'Never eatin, only tweetin'"
-         Answer: "Adamanatite"
+         Question: "Youtube: 17th December 2020"
+         Answer: "Doggomain uploaded 'Wilbur Soot - Your New Boyfriend (Noteblock Edition)"
          Worth: 1000
    cat_3:
-      Name: "Geopolitical"
+      Name: "Urban Definitions"
       1:
-         Question: "This country recently tweeted a meme in response to threats of war "
-         Answer: "Ukraine"
+         Question: "Although an incorrect tense of awake, a reference to how people should be aware in current affairs."
+         Answer: "Woke"
          Worth: 200
       2:
-         Question: "People campaigned for this country to be free after a long-standing conflict reignited with its neighbour"
-         Answer: "Palestine"
+         Question: "When you are in an extreme reckless mode, feeling very mischievous, and lack concern for the well being of others. Normally caused by consuming lots of alcohol."
+         Answer: "Goblin Mode"
          Worth: 400
       3:
-         Question: "This country recently changed its flags colour as an ode to its revolution"
-         Answer: "France"
+         Question: "THE NEW RIZZ KING, the number 1 college football prospect in the country."
+         Answer: "Baby Gronk"
          Worth: 600
       4:
-         Question: "This Latin American country recently had the largest landslide in an election in history"
-         Answer: "Chile"
+         Question: "A disease. A horde. A bacteria that is always spreading and is near impossible to purge."
+         Answer: "Dream stan"
          Worth: 800
       5:
-         Question: "This country’s military seized power in February after a successful coup"
-         Answer: "Myanmar"
+         Question: "A practice particular to engineering students at the University of Saskatchewan. Involves stunting, painting things red, and hanging cars from bridges."
+         Answer: "Gooning"
          Worth: 1000
+         daily_double: 1
    cat_4:
-      Name: "On Christmas Day"
+      Name: "Um Actually"
       1:
-         Question: "This event happened in 1914"
-         Answer: "Christmas Day Truce "
+         Question: "The 2011 game Minecraft, is a singleplayer sandbox game where you can create a world in either Survival, Creative or hardcore mode."
+         Answer: "Actually it has multiplayer"
          Worth: 200
       2:
-         Question: "This fella was born between 6 and 4 BC"
-         Answer: "Jesus"
+         Question: "The DoggoMain SMP, began on the 9th of January 2021, and followed a very brief and incomplete storyline where I teamed up with Adam, who was scared of sheep. Later the server was rebranded for a small Christmas story."
+         Answer: "Actually it was called the Doggo SMP"
          Worth: 400
       3:
-         Question: "This famous scientist who defined the laws of motion was born in 1642"
-         Answer: "Isaac Newton"
+         Question: "Lady Gaga's Pokerface:Po-po-po-poker face, fu-fu-fuck her face (mum-mum-mum-mah)Po-po-po-poker face, fu-fu-fuck her face (mum-mum-mum-mah)I want to roll with him, a hard pair we will beA little gambling is fun when you're with me (I love it)."
+         Answer: "Actually she says 'wanna roll with him'"
          Worth: 600
       4:
-         Question: "This actor known for his moustache died in 1977"
-         Answer: "Charlie Chaplin"
+         Question: "Hugh Campbell Jr, Billy Butchers 'Canary', falls in love with Annie April, a member of 'The Seven' who goes by the alias 'Starlight'. She was recruited into The Seven after an interview following Lamplighters retirement."
+         Answer: "Actually Annie's name is Annie January"
          Worth: 800
       5:
-         Question: "This former president of the Soviet Union resigned in 1991"
-         Answer: "Mikhail Gorbachev"
+         Question: "Scott Pilgrim, the bassist for Sex Bob-omb, develops a crush on a delivery girl for Amazon.com named Ramona Flowers. In order to date Ramona, Scott must first defeat her 'League of Evil Exes,' a group of six ex-boyfriends and one ex-girlfriend."
+         Answer: "Actually Ramona works for Amazon.ca"
          Worth: 1000
    cat_5:
-      Name: "Red and Green"
+      Name: "Dungeons & Dragons"
       1:
-         Question: "This country singer released their fourth studio album, 'Red', in 2012"
-         Answer: "Taylor Swift"
+         Question: "You play as a bullet in this rogue like dungeon crawler."
+         Answer: "Enter the Gungeon"
          Worth: 200
       2:
-         Question: "‘Green light’ is a song by this New Zealand artist"
-         Answer: "Lorde"
+         Question: "This actor played Smaug the dragon in The Hobbit."
+         Answer: "Benedict Cumberbatch"
          Worth: 400
       3:
-         Question: "This is a song about a car by Prince"
-         Answer: "Little Red Corvette"
+         Question: "This is the next year of the dragon."
+         Answer: "2024"
          Worth: 600
       4:
-         Question: "This green mineral can be mined in Skyrim"
-         Answer: "Malachite"
+         Question: "Piccolo from Dragon Ball Z is this race."
+         Answer: "Namekian"
          Worth: 800
       5:
-         Question: "This scientific theory states that red and green hues are perceived by the same receptor complexes in our eyes"
-         Answer: "Opponent-process theory"
+         Question: "Ansilvund, Volskygge and Yngvild are all examples of this."
+         Answer: "Dungeons in Skyrim"
          Worth: 1000
    cat_6:
-      Name: "Compounded"
+      Name: "Logic"
       1:
-         Question: "The act of 'finishing' and the Hasan word"
-         Answer: "Nutcracker"
+         Question: "Name a five headed dragon in Yu-Gi-Oh!"
+         Answer: "Five-Headed Dragon"
          Worth: 200
       2:
-         Question: "A film based on a fanfiction about Harry Styles and Cool____Games.com"
-         Answer: "aftermath"
+         Question: "B is always true if A is true. If A is false, what do we know about B?"
+         Answer: "Nothing"
          Worth: 400
       3:
-         Question: "There are 7 of these in the world and JSchlatt likes these"
-         Answer: "Seamen"
+         Question: "This 11 letter word is most commonly spelled incorrectly."
+         Answer: "Incorrectly"
          Worth: 600
-         daily_double: 1
       4:
-         Question: "Advanced RISC Machines and something that could be styled as a 'Chesterfield', 'Bergere' or 'Windsor'"
-         Answer: "armchair"
+         Question: "This Greek philosopher, taught by Plato, first studied systematic logic."
+         Answer: "Aristotle"
          Worth: 800
       5:
-         Question: "The back part of something and home on the _____"
-         Answer: "Rearrange"
+         Question: "This is the contrapositive of the statement 'If it is raining, I get wet’"
+         Answer: "If I don't get wet, it's not raining"
          Worth: 1000
          
 final:
    Question: "What is my favourite drink?"
+   Category: "Food and Drink"
    Answer: "Hot Chocolate"

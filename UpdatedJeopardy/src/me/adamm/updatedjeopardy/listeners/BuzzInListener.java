@@ -33,7 +33,9 @@ public class BuzzInListener implements Listener {
 		JPlayer j = game.getPlayer(e.getPlayer().getUniqueId());
 		
 		if(!game.buzzersOn() || game.getPlayerBuzzed() != null || !(game.getPlayersInQuestion().contains(j))) {
+			if(!(e.getPlayer().isOp())) {
 			e.setCancelled(true);
+			}
 			return;
 		}
 		

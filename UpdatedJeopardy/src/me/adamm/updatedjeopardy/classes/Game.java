@@ -41,6 +41,7 @@ public class Game {
 	private JPlayer playerInControl;
 	
 	int maxCharLength;
+	int maxQuestionLines;
 	
 	private String direction;
 	private int offset;
@@ -72,6 +73,7 @@ public class Game {
 		this.playerInControl = null;
 		this.noAnswered = 0;
 		this.maxCharLength = plugin.getConfig().getInt("max_char_length");
+		this.maxQuestionLines = plugin.getConfig().getInt("max_question_lines");
 		this.isFinal = false;
 		
 		
@@ -105,7 +107,7 @@ public class Game {
 		double x = plugin.getConfig().getDouble("hologram." + name + ".x");
 		double y = plugin.getConfig().getDouble("hologram." + name + ".y");
 		double z = plugin.getConfig().getDouble("hologram." + name + ".z");
-		Location l = new Location(world, x, y, z);
+		Location l = new Location(this.world, x, y, z);
 		
 		Hologram h = DHAPI.createHologram(name, l);
 		return h;
@@ -394,7 +396,9 @@ public void loadBoard(String board_name) {
 		this.isFinal = true;
 		
 		coverScreen(Material.BLUE_CONCRETE, 3);
+		String fCategory = plugin.getConfig().getString("final.Category");
 		DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("&7FINAL JEOPARDY")));
+		DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("Category: &l" + fCategory)));
 		DHAPI.addHologramLine(qHolo, Utils.chat("Bet up to how much you have (or $1000 if you have less)"));
 		DHAPI.addHologramLine(qHolo, Utils.chat("An incorrect answer will lose you this amount"));
 		DHAPI.addHologramLine(qHolo, Utils.chat("Place a bet using &l/jbet <amount>"));
@@ -424,7 +428,7 @@ public void loadBoard(String board_name) {
 		DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("&7FINAL JEOPARDY")));
 
 		String qString = plugin.getConfig().getString("final.Question");
-		for(int i = 0; i < 4; i++) {
+		for(int i = 0; i < this.maxQuestionLines; i++) {
 			if(qString.length() < this.maxCharLength) {
 				DHAPI.addHologramLine(qHolo, qString);
 				break;
@@ -452,7 +456,7 @@ public void loadBoard(String board_name) {
 			//Re-add all lines except last and replace last line
 			DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("&7FINAL JEOPARDY")));
 			String qString = plugin.getConfig().getString("final.Question");
-			for(int i = 0; i < 4; i++) {
+			for(int i = 0; i < this.maxQuestionLines; i++) {
 				if(qString.length() < this.maxCharLength) {
 					DHAPI.addHologramLine(qHolo, qString);
 					break;
@@ -523,7 +527,7 @@ public void loadBoard(String board_name) {
 		DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("&7" + q.getCategory() + " for " + Utils.getScoreString(q.getWorth()))));
 		
 		String qString = q.getQuestion();
-		for(int i = 0; i < 4; i++) {
+		for(int i = 0; i < this.maxQuestionLines; i++) {
 			if(qString.length() < this.maxCharLength) {
 				DHAPI.addHologramLine(qHolo, qString);
 				break;
@@ -558,6 +562,7 @@ public void loadBoard(String board_name) {
 		if(!(this.onGoing) || this.playerBuzzed == null || this.currentQuestion == null) {return;}
 		
 		if(wasRight) {
+			this.world.playSound(this.playerBuzzed.getBuzzerLocation(), Sound.BLOCK_NOTE_BLOCK_CHIME, 1.0F, 1.0F);
 			this.playerBuzzed.addScore(this.currentQuestion.getWorth());
 			this.playerInControl = this.playerBuzzed;
 			this.playerBuzzed.buzzOut();
@@ -565,6 +570,7 @@ public void loadBoard(String board_name) {
 			this.revealAnswer();
 			
 		} else {
+			this.world.playSound(this.playerBuzzed.getBuzzerLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 1.0F, 1.0F);
 			this.playerBuzzed.removeScore(this.currentQuestion.getWorth());
 			this.playersInQuestion.remove(this.playerBuzzed);
 			this.playerBuzzed.buzzOut();
