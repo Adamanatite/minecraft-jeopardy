@@ -25,6 +25,7 @@ public class JResetCommand implements CommandExecutor {
 		if(sender.isOp()) {
 			Game game = plugin.getGame();
 			game.resetGame();
+			sender.sendMessage(Utils.chat("&aSuccessfully reset game!"));
 			return true;
 			
 		} else {

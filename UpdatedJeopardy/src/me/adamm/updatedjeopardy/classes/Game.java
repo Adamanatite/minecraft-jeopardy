@@ -26,6 +26,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import eu.decentsoftware.holograms.api.DHAPI;
 import eu.decentsoftware.holograms.api.holograms.Hologram;
 import me.adamm.updatedjeopardy.Main;
+import me.adamm.updatedjeopardy.files.ImageConfig;
 
 public class Game {
 	private int noAnswered;
@@ -45,6 +46,7 @@ public class Game {
 	
 	private String direction;
 	private int offset;
+	private int coverOffset;
 	private World world;
 	private int x;
 	private int y;
@@ -82,6 +84,7 @@ public class Game {
 		
 		this.direction = plugin.getConfig().getString("board_top_left.horizontal");
 		this.offset = plugin.getConfig().getInt("board_top_left.out_offset");
+		this.coverOffset = plugin.getConfig().getInt("board_top_left.cover_offset");
 		this.world = Bukkit.getServer().getWorld(plugin.getConfig().getString("board_top_left.world"));
 		this.x = plugin.getConfig().getInt("board_top_left.x");
 		this.y = plugin.getConfig().getInt("board_top_left.y");
@@ -112,6 +115,14 @@ public class Game {
 		Hologram h = DHAPI.createHologram(name, l);
 		return h;
 		
+	}
+	
+	private void moveHologram(int upBlocks) {
+		double x = plugin.getConfig().getDouble("hologram.question.x");
+		double y = plugin.getConfig().getDouble("hologram.question.y");
+		double z = plugin.getConfig().getDouble("hologram.question.z");
+		Location l = new Location(this.world, x, y+upBlocks, z);
+		DHAPI.moveHologram(qHolo, l);
 	}
 	
 	public boolean isInGame(JPlayer j) {
@@ -304,7 +315,14 @@ public void loadBoard(String board_name) {
 				String aname = plugin.getConfig().getString(board_name + ".cat_" + c + "." + q + ".Answer");
 				int worth = plugin.getConfig().getInt(board_name + ".cat_" + c + "." + q + ".Worth");
 				boolean daily_double = plugin.getConfig().contains(board_name + ".cat_" + c + "." + q + ".daily_double");
-				Question qu = new Question(qname, aname, cname, worth, daily_double);
+				Question qu;
+				if(plugin.getConfig().contains(board_name + ".cat_" + c + "." + q + ".Image")) {
+					String image = plugin.getConfig().getString(board_name + ".cat_" + c + "." + q + ".Image");
+					qu = new Question(qname, aname, cname, worth, daily_double, image);
+				}
+				else {
+					qu = new Question(qname, aname, cname, worth, daily_double);					
+				}
 				this.questions[c-1][q-1] = qu;	
 				
 			}
@@ -373,7 +391,7 @@ public void loadBoard(String board_name) {
 			this.world.playSound(qHolo.getLocation(), Sound.BLOCK_BELL_USE, 1.0F, 1.0F);
 			int s = this.playerInControl.getScore();
 			String scoreString = Utils.getScoreString(Math.max(q.getWorth(), s));
-			coverScreen(Material.BLUE_CONCRETE, 3);
+			coverScreen(Material.BLUE_CONCRETE);
 			DHAPI.addHologramLine(qHolo, Utils.chat("Enter an amount from $0 to " + scoreString));
 			DHAPI.addHologramLine(qHolo, Utils.chat("A correct answer will earn you this amount"));
 			DHAPI.addHologramLine(qHolo, Utils.chat("An incorrect answer will lose you this amount"));
@@ -395,7 +413,7 @@ public void loadBoard(String board_name) {
 	public void askFinalBets() {
 		this.isFinal = true;
 		
-		coverScreen(Material.BLUE_CONCRETE, 3);
+		coverScreen(Material.BLUE_CONCRETE);
 		String fCategory = plugin.getConfig().getString("final.Category");
 		DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("&7FINAL JEOPARDY")));
 		DHAPI.addHologramLine(qHolo, Utils.chat("Category: &l" + fCategory));
@@ -536,7 +554,28 @@ public void loadBoard(String board_name) {
 			DHAPI.addHologramLine(qHolo, qString.substring(0, index));
 			qString = qString.substring(index+1);
 		}
-		coverScreen(Material.BLUE_CONCRETE, 3);
+		
+		if(this.currentQuestion.isImageQuestion()) {
+			
+			String template = this.currentQuestion.getImageTemplate();
+			
+			if(ImageConfig.get().contains(template)) {
+				// Move hologram up
+				moveHologram(3);
+				
+				// Load image template
+				List<String> blocks = ImageConfig.get().getStringList(template);
+				loadImage(blocks);
+				
+			} else {
+				Bukkit.broadcastMessage("Couldn't find image " + template);
+				coverScreen(Material.BLUE_CONCRETE);
+			}
+			
+		} else {
+			coverScreen(Material.BLUE_CONCRETE);			
+		}
+
 	}
 	
 	
@@ -615,7 +654,8 @@ public void loadBoard(String board_name) {
 		    @Override
 		    public void run() {
 		    	DHAPI.setHologramLines(qHolo, Arrays.asList(""));
-		        coverScreen(Material.AIR, 3);
+		        coverScreen(Material.AIR);
+		        moveHologram(0);
 		    }
 		}, 60L);	
 	}
@@ -623,6 +663,10 @@ public void loadBoard(String board_name) {
 	public void skipQuestion() {
 		
 		if(this.currentQuestion == null) {return;}
+		
+		if(this.currentQuestion.isImageQuestion()) {
+			moveHologram(0);
+		}
 		
 		if(this.getPlayerBuzzed() != null) {
 			this.getPlayerBuzzed().buzzOut();
@@ -636,27 +680,89 @@ public void loadBoard(String board_name) {
 		this.currentQuestion = null;
 		
 		DHAPI.setHologramLines(qHolo, Arrays.asList(""));
-		coverScreen(Material.AIR, 3);	
+		coverScreen(Material.AIR);	
 	}
 	
 	
-	public void coverScreen(Material m, int offsetM) {
+	public void coverScreen(Material m) {
 		Location l;
 		for(int i = -3; i < 9; i++) {
-			for(int j = 0; j < 5; j++) {
+			for(int j = -1; j < 5; j++) {
 				
 				if(direction.equals("x")) {
-					l = new Location(world, x+i, y-j, z+(offset*offsetM));
+					l = new Location(world, x+i, y-j, z+(offset*coverOffset));
 				} else if(direction.equals("-x")) {
-					l = new Location(world, x-i, y-j, z+(offset*offsetM));	
+					l = new Location(world, x-i, y-j, z+(offset*coverOffset));	
 				} else if(direction.equals("z")) {
-					l = new Location(world, x+(offset*offsetM), y-j, z+i);	
+					l = new Location(world, x+(offset*coverOffset), y-j, z+i);	
 				} else {
-					l = new Location(world, x+(offset*offsetM), y-j, z-i);	
+					l = new Location(world, x+(offset*coverOffset), y-j, z-i);	
 				}
 				
 				l.getBlock().setType(m);	
 			}
 		}
-	}	
+	}
+	
+	public void saveImage(String name) {
+
+		Location l;
+		
+		List<String> blocks = new ArrayList<String>();
+		
+		for(int i = -3; i < 9; i++) {
+			for(int j = -1; j < 5; j++) {
+				
+				if(direction.equals("x")) {
+					l = new Location(world, x+i, y-j, z+(offset*coverOffset));
+				} else if(direction.equals("-x")) {
+					l = new Location(world, x-i, y-j, z+(offset*coverOffset));	
+				} else if(direction.equals("z")) {
+					l = new Location(world, x+(offset*coverOffset), y-j, z+i);	
+				} else {
+					l = new Location(world, x+(offset*coverOffset), y-j, z-i);	
+				}
+				
+				blocks.add(l.getBlock().getType().name());	
+			}
+		}
+		
+		ImageConfig.get().set(name, blocks);
+		ImageConfig.save();
+	}
+	
+	
+	public void loadImage(List<String> blocks) {
+		
+		if(!(blocks.size() == 72)) {
+			Bukkit.broadcastMessage("Couldn't load image: size incorrect");
+			return;
+		}
+		
+		Location l;
+		int n = 0;
+		
+		for(int i = -3; i < 9; i++) {
+			for(int j = -1; j < 5; j++) {
+				
+				if(direction.equals("x")) {
+					l = new Location(world, x+i, y-j, z+(offset*coverOffset));
+				} else if(direction.equals("-x")) {
+					l = new Location(world, x-i, y-j, z+(offset*coverOffset));	
+				} else if(direction.equals("z")) {
+					l = new Location(world, x+(offset*coverOffset), y-j, z+i);	
+				} else {
+					l = new Location(world, x+(offset*coverOffset), y-j, z-i);	
+				}
+				
+				l.getBlock().setType(Material.matchMaterial(blocks.get(n)));
+				n++;
+			}
+		}
+	}
+	
+	public int getCoverOffset() {
+		return this.coverOffset;
+	}
+	
 }

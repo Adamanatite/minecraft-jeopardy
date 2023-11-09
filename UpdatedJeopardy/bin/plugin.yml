@@ -32,3 +32,7 @@ commands:
       description: Command for removing points from a player
    jskip:
       description: Command for skipping an active question
+   jsaveimage:
+      description: Command for saving an image template for the image board
+   jloadimage:
+      description: Command for loading an image template on image board

@@ -5,6 +5,7 @@ board_top_left:
    world: "jeopardyworld"
    horizontal: "-x"
    out_offset: -1
+   cover_offset: 3
 
 max_char_length: 60
 max_question_lines: 5
@@ -287,6 +288,33 @@ second_board:
          Answer: "Dungeons in Skyrim"
          Worth: 1000
    cat_6:
+      Name: "???"
+      1:
+         Question: "Name the flag"
+         Answer: "France"
+         Image: france
+         Worth: 200
+      2:
+         Question: "Name the flag"
+         Answer: "Colombia"
+         Image: colombia
+         Worth: 400
+      3:
+         Question: "Name the flag"
+         Answer: "Palestine"
+         Image: palestine
+         Worth: 600
+      4:
+         Question: "Name the flag"
+         Answer: "Laos"
+         Image: laos
+         Worth: 800
+      5:
+         Question: "Name the flag"
+         Answer: "Namibia"
+         Image: namibia
+         Worth: 1000
+   cat_7:
       Name: "Logic"
       1:
          Question: "Name a five headed dragon in Yu-Gi-Oh!"

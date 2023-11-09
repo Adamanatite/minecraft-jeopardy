@@ -57,6 +57,7 @@ public class JFinalCommand implements CommandExecutor {
 		
 		answerString = answerString.substring(0, answerString.length() - 1);
 		game.getFinalAnswer(answerString, j);
+		p.sendMessage(Utils.chat("&aSuccessfully answered final jeopardy!"));
 		
 		return true;
 	}
