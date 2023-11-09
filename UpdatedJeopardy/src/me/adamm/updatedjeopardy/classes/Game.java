@@ -470,7 +470,11 @@ public void loadBoard(String board_name) {
 			}
 			this.playerBuzzed.buzzIn();
 			Bukkit.broadcastMessage(Utils.chat("&b" + this.playerBuzzed.getName() + " has answered: &l" + this.finalAnswers.get(this.playerBuzzed)));
-			
+	        for(Player p : Bukkit.getOnlinePlayers()) {
+	        	if(p.getWorld().equals(world)) {
+	        	p.sendTitle(Utils.chat("&b" + this.playerBuzzed.getName() + " has answered: &l" + this.finalAnswers.get(this.playerBuzzed)), "", 1, 20, 1);
+	        	}
+	        }
 	}
 	
 	public JPlayer getPlayerByIndex(int i) {
