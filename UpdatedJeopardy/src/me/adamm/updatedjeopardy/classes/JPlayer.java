@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
@@ -29,12 +30,12 @@ public class JPlayer {
 		this.score = 0;
 		this.h = holo;
 		this.buzzer = buzzer;
-		// Move to under buzzer
-		this.buzzer.add(0, -2, 0);
 	}
 	
 	public void buzzIn() {
-
+		
+		this.buzzer.getWorld().playSound(this.buzzer, Sound.BLOCK_NOTE_BLOCK_GUITAR, 1.0F, 1.0F);
+		this.buzzer.add(0, -2, 0);
 		Block ub = this.buzzer.getBlock();
 		ub.setType(Material.REDSTONE_BLOCK);
 		// Replace neighbouring air blocks with redstone blocks
@@ -44,9 +45,12 @@ public class JPlayer {
 				b.setType(Material.REDSTONE_BLOCK);
 			};
 		}
+		this.buzzer.add(0, 2, 0);
 	}
 	
 	public void buzzOut() {
+		
+		this.buzzer.add(0, -2, 0);
 		Block ub = this.buzzer.getBlock();
 		ub.setType(Material.AIR);
 		// Replace neighbouring air blocks with redstone blocks
@@ -56,6 +60,7 @@ public class JPlayer {
 				b.setType(Material.AIR);
 			};
 		}
+		this.buzzer.add(0, 2, 0);
 	}
 	
 	public int getScore() {

@@ -368,14 +368,9 @@ public void loadBoard(String board_name) {
 			this.playersInQuestion.add(this.playerInControl);
 			//Daily double shit (ask question and set new worth)
 			DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("DAILY DOUBLE:")));
+			this.world.playSound(qHolo.getLocation(), Sound.BLOCK_BELL_USE, 1.0F, 1.0F);
 			int s = this.playerInControl.getScore();
-			String scoreString;
-			if(s < 0) {
-				scoreString = Utils.getScoreString(q.getWorth());
-			}
-			else {
-				scoreString = Utils.getScoreString(Math.max(q.getWorth(), s));
-			}
+			String scoreString = Utils.getScoreString(Math.max(q.getWorth(), s));
 			coverScreen(Material.BLUE_CONCRETE, 3);
 			DHAPI.addHologramLine(qHolo, Utils.chat("Enter an amount from $0 to " + scoreString));
 			DHAPI.addHologramLine(qHolo, Utils.chat("A correct answer will earn you this amount"));
@@ -452,7 +447,7 @@ public void loadBoard(String board_name) {
 		
 		if(this.finalAnswers.size() == this.players.length) {		
 			Bukkit.broadcastMessage(Utils.chat("&aAll players have locked in their answer!"));
-			this.world.playSound(qHolo.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 1.0F, 1.0F);
+			this.world.playSound(qHolo.getLocation(), Sound.BLOCK_NOTE_BLOCK_BANJO, 1.0F, 1.0F);
 			
 			//Re-add all lines except last and replace last line
 			DHAPI.setHologramLines(qHolo, Arrays.asList(Utils.chat("&7FINAL JEOPARDY")));
@@ -495,17 +490,17 @@ public void loadBoard(String board_name) {
 		if(!(this.onGoing) || this.playerBuzzed == null) {return;}
 		
 		int bet = this.finalBets.getOrDefault(this.playerBuzzed, 0);
-		
 		if(wasRight) {
 			this.playerBuzzed.addScore(bet);
 			Bukkit.broadcastMessage(Utils.chat("&a" + this.playerBuzzed.getName() + " just won " + Utils.getScoreString(bet) + "!"));
 		} else {
-			this.playerBuzzed.removeScore(bet);
-			Bukkit.broadcastMessage(Utils.chat("&c" + this.playerBuzzed.getName() + " just lost " + Utils.getScoreString(bet)));
-		}
+				this.playerBuzzed.removeScore(bet);
+				Bukkit.broadcastMessage(Utils.chat("&c" + this.playerBuzzed.getName() + " just lost " + Utils.getScoreString(bet)));
+		}	
+		
+		this.finalBets.remove(this.playerBuzzed);
 		this.playerBuzzed.buzzOut();
 		this.finalAnswers.remove(this.playerBuzzed);
-		this.finalBets.remove(this.playerBuzzed);
 		
 		if(this.finalBets.isEmpty()) {
 			Bukkit.broadcastMessage(Utils.chat("&bJeopardy is over!"));
@@ -616,7 +611,7 @@ public void loadBoard(String board_name) {
 		    	DHAPI.setHologramLines(qHolo, Arrays.asList(""));
 		        coverScreen(Material.AIR, 3);
 		    }
-		}, 80L);	
+		}, 60L);	
 	}
 	
 	public void skipQuestion() {
