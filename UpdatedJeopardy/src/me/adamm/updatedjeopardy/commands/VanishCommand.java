@@ -10,20 +10,17 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.adamm.updatedjeopardy.Main;
-import me.adamm.updatedjeopardy.classes.Game;
 import me.adamm.updatedjeopardy.classes.Utils;
 
 public class VanishCommand implements CommandExecutor {
 	/*Reference to main class*/
 	private Main plugin;
-	private List<Player> vanishedPlayers;
 	
 	/*Class constructor*/
 	public VanishCommand(Main plugin) {
 		/*Register command with plugin*/
 		this.plugin = plugin;
 		plugin.getCommand("vanish").setExecutor(this);
-		this.vanishedPlayers = new ArrayList<Player>();
 	}
 	
 	@Override
@@ -35,9 +32,21 @@ public class VanishCommand implements CommandExecutor {
 				return false;
 			}
 			
-			Player p = (Player) sender;
+			Player p;
 			
-			Boolean isVisible = !(this.vanishedPlayers.contains(p));
+			if(args.length == 0) {
+				p = (Player) sender;
+			} else {
+				try {
+					p = Bukkit.getPlayer(args[0]);
+				} catch(Exception e) {
+					p = (Player) sender;
+				}
+			}
+			
+			List<Player> vanishedPlayers = plugin.getVanishedPlayers();
+			
+			Boolean isVisible = !(vanishedPlayers.contains(p));
 			
 			for(Player p2 : Bukkit.getOnlinePlayers()) {
 				if(isVisible) {
@@ -48,10 +57,10 @@ public class VanishCommand implements CommandExecutor {
 				}
 			}
 			if(isVisible) {
-				this.vanishedPlayers.add(p);
+				vanishedPlayers.add(p);
 				p.sendMessage(Utils.chat("&aYou have vanished"));
 			} else {
-				this.vanishedPlayers.remove(p);
+				vanishedPlayers.remove(p);
 				p.sendMessage(Utils.chat("&aYou have unvanished"));
 			}
 			
