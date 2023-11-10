@@ -561,7 +561,7 @@ public void loadBoard(String board_name) {
 			
 			if(ImageConfig.get().contains(template)) {
 				// Move hologram up
-				moveHologram(3);
+				moveHologram(2);
 				
 				// Load image template
 				List<String> blocks = ImageConfig.get().getStringList(template);
@@ -616,6 +616,8 @@ public void loadBoard(String board_name) {
 			this.playerBuzzed = null;
 			if(this.playersInQuestion.isEmpty()) {
 				this.revealAnswer();
+			} else {
+				this.activateBuzzers();
 			}
 		}
 		

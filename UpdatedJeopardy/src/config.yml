@@ -25,7 +25,7 @@ hologram:
       z: -36.500
    question:
       x: 65.0
-      y: 135.75
+      y: 136.75
       z: -31.5
 
 buzzer:
@@ -235,8 +235,8 @@ second_board:
          Answer: "Baby Gronk"
          Worth: 600
       4:
-         Question: "A disease. A horde. A bacteria that is always spreading and is near impossible to purge."
-         Answer: "Dream stan"
+         Question: "Is a very old clown, also can be used to insult others"
+         Answer: "Bozo"
          Worth: 800
       5:
          Question: "A practice particular to engineering students at the University of Saskatchewan. Involves stunting, painting things red, and hanging cars from bridges."
@@ -254,8 +254,8 @@ second_board:
          Answer: "Actually it was called the Doggo SMP"
          Worth: 400
       3:
-         Question: "Lady Gaga's Pokerface: Po-po-po-poker face, fu-fu-fuck her face (mum-mum-mum-mah Po-po-po-poker face, fu-fu-fuck her face (mum-mum-mum-mah)I want to roll with him, a hard pair we will be A little gambling is fun when you're with me (I love it)."
-         Answer: "Actually she says 'wanna roll with him'"
+         Question: "The first verse of Justin Timberlake's 'It's gonna be me' is 'You might been hurt, babe' 'That ain't no lie' 'You've seen them all come and go, oh' 'I remember you told me' 'That it made you believe in' 'No man, no cry' 'Maybe that's why'"
+         Answer: "Actually it was an NSUNC song"
          Worth: 600
       4:
          Question: "Hugh Campbell Jr, Billy Butchers 'Canary', falls in love with Annie April, a member of 'The Seven' who goes by the alias 'Starlight'. She was recruited into The Seven after an interview following Lamplighters retirement."
@@ -338,6 +338,6 @@ second_board:
          Worth: 1000
          
 final:
-   Question: "What is my favourite drink?"
-   Category: "Food and Drink"
-   Answer: "Hot Chocolate"
+   Question: "In darts, what is the lowest score you &ccan't &rachieve by throwing a single dart?"
+   Category: "Logic"
+   Answer: "23"

@@ -19,6 +19,7 @@ import me.adamm.updatedjeopardy.commands.JRevealCommand;
 import me.adamm.updatedjeopardy.commands.JSaveImageCommand;
 import me.adamm.updatedjeopardy.commands.JSetCommand;
 import me.adamm.updatedjeopardy.commands.JSkipCommand;
+import me.adamm.updatedjeopardy.commands.VanishCommand;
 import me.adamm.updatedjeopardy.files.ImageConfig;
 import me.adamm.updatedjeopardy.listeners.BuzzInListener;
 import me.adamm.updatedjeopardy.listeners.FrameBreakListener;
@@ -59,6 +60,8 @@ public class Main extends JavaPlugin {
 		new JSkipCommand(this);
 		new JSaveImageCommand(this);
 		new JLoadImageCommand(this);
+		
+		new VanishCommand(this);
 		
 		// Initialise listeners
 		new BuzzInListener(this);
