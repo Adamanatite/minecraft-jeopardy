@@ -2,6 +2,7 @@ package me.adamm.updatedjeopardy.classes;
 
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -11,6 +12,7 @@ import org.bukkit.entity.Player;
 
 import eu.decentsoftware.holograms.api.DHAPI;
 import eu.decentsoftware.holograms.api.holograms.Hologram;
+import me.adamm.updatedjeopardy.Main;
 
 
 
@@ -20,16 +22,17 @@ public class JPlayer {
 	private int score;
 	private Hologram h;
 	private Location buzzer;
-	
+	private Main plugin;
 	
 	//Hologram
 	
-	public JPlayer(Player p, Hologram holo, Location buzzer) {
+	public JPlayer(Player p, Hologram holo, Location buzzer, Main plugin) {
 		this.name = p.getName();
 		this.uuid = p.getUniqueId();
 		this.score = 0;
 		this.h = holo;
 		this.buzzer = buzzer;
+		this.plugin = plugin;
 	}
 	
 	public void buzzIn() {
@@ -69,12 +72,17 @@ public class JPlayer {
 	
 	public void addScore(int nscore) {
 		this.score += nscore;
-		this.updateHologram();
+		this.setHologram(Utils.getChangeScoreString(nscore));
+		Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+		    @Override
+		    public void run() {
+		    	updateHologram();
+		    }
+		}, 10L);
 	}
 	
 	public void removeScore(int nscore) {
-		this.score -= nscore;
-		this.updateHologram();
+		this.addScore(-nscore);
 	}
 	
 	public void setScore(int nscore) {
@@ -88,12 +96,17 @@ public class JPlayer {
 	}
 	
 	public void updateHologram() {
-		
 		String scoreString = Utils.getScoreString(this.score);
 		//Set hologram to this.score
 		DHAPI.setHologramLine(h, 0, scoreString);
 	}
 
+	public void setHologram(String text) {
+		//Set hologram to text
+		DHAPI.setHologramLine(h, 0, text);
+	}
+	
+	
 	public UUID getUuid() {
 		return uuid;
 	}

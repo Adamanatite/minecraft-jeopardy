@@ -175,7 +175,7 @@ public class Game {
 	public boolean addPlayer(Player p) {
 		for(int i = 0; i < this.players.length; i++) {
 			if(this.players[i] == null) {
-				JPlayer j = new JPlayer(p, pHolos[i], buzzers[i]); 
+				JPlayer j = new JPlayer(p, pHolos[i], buzzers[i], this.plugin); 
 				this.players[i] = j;
 				return true;
 			}
@@ -498,6 +498,13 @@ public void loadBoard(String board_name) {
 			}
 			this.playerBuzzed.buzzIn();
 			Bukkit.broadcastMessage(Utils.chat("&b" + this.playerBuzzed.getName() + " has answered: &l" + this.finalAnswers.get(this.playerBuzzed)));
+			for(JPlayer j : this.players) {
+				if (j.equals(this.playerBuzzed)){
+					j.setHologram(Utils.chat("Answer: &l" + this.finalAnswers.get(this.playerBuzzed)));
+				} else {
+					j.setHologram(Utils.chat(""));
+				}
+			}
 	}
 	
 	public JPlayer getPlayerByIndex(int i) {
@@ -519,6 +526,12 @@ public void loadBoard(String board_name) {
 				this.playerBuzzed.removeScore(bet);
 				Bukkit.broadcastMessage(Utils.chat("&c" + this.playerBuzzed.getName() + " just lost " + Utils.getScoreString(bet)));
 		}	
+		
+		for(JPlayer j : this.players) {
+			if (!(j.equals(this.playerBuzzed))){
+				j.updateHologram();
+			}
+		}
 		
 		this.finalBets.remove(this.playerBuzzed);
 		this.playerBuzzed.buzzOut();
