@@ -125,6 +125,10 @@ public class Game {
 		DHAPI.moveHologram(qHolo, l);
 	}
 	
+	public boolean isOngoing() {
+		return this.onGoing;
+	}
+	
 	public boolean isInGame(JPlayer j) {
 		return (players[0].equals(j) || players[0].equals(j) || players[0].equals(j));
 	}

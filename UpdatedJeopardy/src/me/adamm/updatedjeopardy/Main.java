@@ -26,8 +26,10 @@ import me.adamm.updatedjeopardy.commands.JSetCommand;
 import me.adamm.updatedjeopardy.commands.JSkipCommand;
 import me.adamm.updatedjeopardy.commands.VanishCommand;
 import me.adamm.updatedjeopardy.files.ImageConfig;
+import me.adamm.updatedjeopardy.listeners.BlockBreakListener;
 import me.adamm.updatedjeopardy.listeners.BuzzInListener;
 import me.adamm.updatedjeopardy.listeners.FrameBreakListener;
+import me.adamm.updatedjeopardy.listeners.ItemFrameBreakListener;
 import me.adamm.updatedjeopardy.listeners.JoinVanishListener;
 import me.adamm.updatedjeopardy.listeners.LeaveVanishListener;
 import me.adamm.updatedjeopardy.listeners.PreventRotationListener;
@@ -78,6 +80,9 @@ public class Main extends JavaPlugin {
 		new PreventRotationListener(this);
 		new LeaveVanishListener(this);
 		new JoinVanishListener(this);
+		new ItemFrameBreakListener(this);
+		new BlockBreakListener(this);
+		
 		
 		// Show all players
 		for(Player p : Bukkit.getOnlinePlayers()) {
