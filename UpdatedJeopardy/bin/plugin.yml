@@ -36,6 +36,8 @@ commands:
       description: Command for saving an image template for the image board
    jloadimage:
       description: Command for loading an image template on image board
+   jhelp:
+      description: Command for displaying the help text
    vanish:
       description: Command for making a player appear or disappear
       aliases: [v]

@@ -44,300 +44,273 @@ buzzer:
 
 first_board:
    cat_1:
-      Name: "Binding of Isaac"
+      Name: "Chess"
       1:
-         Question: "Isaac is based on this biblical character."
-         Answer: "Isaac"
+         Question: "This rule was made by the French (ew)"
+         Answer: "En Passant"
          Worth: 100
       2:
-         Question: "This item is the only one that can appear after the item pool is exhausted."
-         Answer: "Breakfast"
+         Question: "This is the name of the chess player Beth Harmon defeats in her bid for world champion."
+         Answer: "Vasily Borgov"
          Worth: 200
       3:
-         Question: "This is the floor number on which you would fight Mom."
-         Answer: "6"
+         Question: "Remy LeBeau is a Marvel superhero commonly known by this chess term."
+         Answer: "Gambit"
          Worth: 300
       4:
-         Question: "This is the number of Tarot cards available in the game."
-         Answer: "22"
+         Question: "This is the current chess world champion."
+         Answer: "Ding Liren"
          Worth: 400
       5:
-         Question: "These are my top 5 favourite items in the game (Name one)"
-         Answer: "Dr Fetus, Ipecac, Polyphemus, D6, Mutant Spider"
+         Question: "The Seventh Seal, is a 1957 chess film by Ingmar Bergman from this country."
+         Answer: "Sweden"
          Worth: 500
    cat_2:
-      Name: "Pokemon"
+      Name: "Vocaloid"
       1:
-         Question: "This pokemon is based on a seal."
-         Answer: "Seel"
+         Question: "This Japanese company produced Vocaloid"
+         Answer: "Yamaha"
          Worth: 100
       2:
-         Question: "This generation of Pokemon games first featured the Johto region."
-         Answer: "Generation 2 (Gold/Silver/Crystal)"
+         Question: "Akihiko Kondo married this character in 2018."
+         Answer: "Hatsune Miku"
          Worth: 200
       3:
-         Question: "This is the first pokemon Ash catches in the Pokemon series."
-         Answer: "Caterpie"
+         Question: "This is the original voice actor of Hatsune Miku"
+         Answer: "Saki Fujita"
          Worth: 300
       4:
-         Question: "This pokemon had no weaknesses before the introduction of the fairy type in generation 6."
-         Answer: "Spiritomb and Sableye"
+         Question: "This is the age of Hatsune Miku"
+         Answer: "16"
          Worth: 400
       5:
-         Question: "According to its Pokedex entry, people put this 'Zen charm' Pokemon's hot droppings in their clothes for warmth."
-         Answer: "Darumaka"
+         Question: "This is the successor to the Vocaloid software."
+         Answer: "Vocaloid 2"
          Worth: 500
    cat_3:
-      Name: "Dungeons & Dragons"
+      Name: "Dinosaurs"
       1:
-         Question: "This gelatinous cube is a type of enemy in Dungeons & Dragons."
-         Answer: "Gelatinous Cube"
+         Question: "This animated film series about dinosaurs, got a TV adaptation in 2007."
+         Answer: "Land Before Time"
          Worth: 100
       2:
-         Question: "This class in Dungeons & Dragons has an ability called 'Rage'"
-         Answer: "Barbarian"
+         Question: "This is the unofficial name of the T-rex from Jurassic Park, 1000 points for the actual name of it."
+         Answer: "Rexy, Roberta"
          Worth: 200
       3:
-         Question: "This is the amount of dice used to play Dungeons & Dragons."
-         Answer: "7"
+         Question: "Canonically, this was the company that made Rex in Toy Story"
+         Answer: "Mattel"
          Worth: 300
       4:
-         Question: "This is Dustin's Dungeons & Dragons class in Stranger Things"
-         Answer: "Bard"
+         Question: "This is the name of the fictional island on which Jurassic Park is built."
+         Answer: "Isla Nublar"
          Worth: 400
       5:
-         Question: "This creature chases the main characters through a maze in the 2022 Dungeons & Dragons film."
-         Answer: "Displacer Beast"
+         Question: "Arlo from The Good Dinosaur is this species of dinosaur."
+         Answer: "Apatosaurus"
          Worth: 500
    cat_4:
-      Name: "Bored Games"
+      Name: "Spies"
       1:
-         Question: "A chess board has this many squares."
-         Answer: "64"
+         Question: "This is the voice actor for the main character in Spies in Disguise (2019)"
+         Answer: "Tom Holland, Will Smith"
          Worth: 100
       2:
-         Question: "Where would you end up in Monopoly if you rolled 3 double sixes from Go."
-         Answer: "Jail"
+         Question: "Armie Hammer and Henry Cavill star alongside each other in this Guy Ritchie spy film."
+         Answer: "The Man from U.N.C.L.E."
          Worth: 200
       3:
-         Question: "In this board game you play as a raccoon building a business tycoon."
-         Answer: "Raccoon Tycoon"
+         Question: "This is the name of the first James Bond film."
+         Answer: "Dr. No"
          Worth: 300
       4:
-         Question: "This letter in scrabble is worth 5 points."
-         Answer: "K"
+         Question: "This is the full name of MI6. (2 Answers)"
+         Answer: "Secret Intelligence Service, Military Intelligence, Section 6"
          Worth: 400
       5:
-         Question: "This board game has the same name as a play by Agatha Christie."
-         Answer: "Mousetrap"
+         Question: "The Evidenzbureau is the oldest intelligence service in the world, founded in this European country in 1850."
+         Answer: "Austria"
          Worth: 500
    cat_5:
-      Name: "Bowling"
+      Name: "Mud in me"
       1:
-         Question: "This country's flag features a white moon and star on a red background."
-         Answer: "Turkey"
+         Question: "This is a soft, sticky matter resulting from the mixing of earth and water."
+         Answer: "Mud"
          Worth: 100
       2:
-         Question: "This unions strike ended yesterday."
-         Answer: "SAG AFTRA"
+         Question: "Many ships and planes have disappeared over this triangle in the ocean."
+         Answer: "Bermuda Triangle"
          Worth: 200
       3:
-         Question: "The titular character of this film is also known as 'The dude'"
-         Answer: "The Big Lebowski"
+         Question: "This crushing tool is essential in a bartenders kit."
+         Answer: "Muddler"
          Worth: 300
       4:
-         Question: "This band had hits with '1985' and 'Girl All the Bad Guys Want'"
-         Answer: "Bowling for Soup"
+         Question: "This goby (fish) with its eyes on raised bumps on top of its head is found in Mangrove swamps."
+         Answer: "Mudskipper"
          Worth: 400
       5:
-         Question: "This book includes a detailed story of a prince losing his virginity."
-         Answer: "Spare"
+         Question: "This is a bad-tempered person, especially an old one."
+         Answer: "Curmudgeon"
          Worth: 500
    cat_6:
-      Name: "Before and After"
+      Name: "Toy Stories"
       1:
-         Question: "This Taylor Swift album is a tragic event that happened in September 2001."
-         Answer: "1989/11"
+         Question: "This is the company behind the Barbie doll."
+         Answer: "Mattel"
          Worth: 100
       2:
-         Question: "This creator of the atomic bomb is a champion in League of Legends."
-         Answer: "Oppenheimerdinger"
+         Question: "This is one of the first toys inducted into the toy hall of fame in 1998. (11 answers)"
+         Answer: "Barbie, Crayola crayons, Erector Set, Etch A Sketch, Frisbee, LEGO, marbles, Monopoly, Play-Doh, the teddy bear, and Tinkertoy"
          Worth: 200
       3:
-         Question: "This Disney+ series about a Welsh football team is a musical by Lin Manuel Miranda."
-         Answer: "Welcome to Wrexhamilton"
+         Question: "This is the name of the Toys 'R' Us giraffe."
+         Answer: "Geoffrey"
          Worth: 300
       4:
-         Question: "This vodka is another word for children."
-         Answer: "Smirnoffspring"
+         Question: "Mathilde's Dou Dou bunny is a pink knitted rabbit from this recent spy film."
+         Answer: "No Time To Die"
          Worth: 400
       5:
-         Question: "This horror comedy about animatronics, features a cartoonist who kidnaps his own father."
-         Answer: "Five Nights at Freddy Got Fingered"
+         Question: "This is the name of the antagonistic 1950s doll from Toy Story 4."
+         Answer: "Gabby Gabby"
          Worth: 500
 second_board:
    cat_1:
-      Name: "Connect 4"
+      Name: "Before and After"
       1:
-         Question: "John, Paul, George, Ringo."
-         Answer: "The Beatles"
+         Question: "This vocaloid is an animated martial arts film from 2008."
+         Answer: "Hatsune Mikung Fu Panda"
          Worth: 200
       2:
-         Question: "Whiskey, Tango, Echo, Golf."
-         Answer: "NATO phonetic alphabet letters"
+         Question: "This poker-based roguelite is an iconic ragecomic face still used today."
+         Answer: "Balatroll face"
          Worth: 400
       3:
-         Question: "Cheap Fucking Knockoff, Gramps, Fucking disappointment, The Only Man In The Sky."
-         Answer: "Homelander's nicknames"
+         Question: "This chess piece is a sheet of fabric used to cover a doorway from outside elements."
+         Answer: "Pawning"
          Worth: 600
       4:
-         Question: "Manhattan, Spa, Fiji, Efes."
-         Answer: "Drinks named after places"
+         Question: "This dragon type pokemon starred in High School Musical."
+         Answer: "Rayquazac Efron"
          Worth: 800
       5:
-         Question: "Shamrock, Razzmatazz, Tickle Me Pink, Jazzberry Jam."
-         Answer: "Crayola Colours"
+         Question: "This primordial life form from Marvels dark dimension is a 2012 film starring Matthew Mcconaughey as the titular character."
+         Answer: "Dormammud"
          Worth: 1000
    cat_2:
-      Name: "On This Day"
+      Name: "A little Fruity"
       1:
-         Question: "China: June 4th 1989."
-         Answer: "Nothing :)"
+         Question: "Nuts are fruit. True or False?"
+         Answer: "True"
          Worth: 200
       2:
-         Question: "Monarchs: September 8th 2022."
-         Answer: "Lizzie kicked the bucket"
+         Question: "This attempted actor from stranger things recently thought 'zionism is sexy'"
+         Answer: "Noah Schnapp"
          Worth: 400
       3:
-         Question: "Movies: July 21st 2023."
-         Answer: "Barbenheimer day"
+         Question: "This fruit was iconically devoured by Denethor."
+         Answer: "Tomato"
          Worth: 600
       4:
-         Question: "Gaming: September 17th 2013."
-         Answer: "GTA V Release"
+         Question: "This Veggietales character is actually a fruit."
+         Answer: "Bob"
          Worth: 800
       5:
-         Question: "Youtube: 17th December 2020."
-         Answer: "Doggomain uploaded 'Wilbur Soot - Your New Boyfriend (Noteblock Edition)"
+         Question: "Dakota Johnson has this fruit all around her house, while being allergic to them."
+         Answer: "Limes"
          Worth: 1000
    cat_3:
-      Name: "Urban Definitions"
+      Name: "Names the sames"
       1:
-         Question: "Although an incorrect tense of awake, a reference to how people should be aware in current affairs."
-         Answer: "Woke"
+         Question: "Garfield voice actor, NYC university"
+         Answer: "Pratt"
          Worth: 200
       2:
-         Question: "When you are in an extreme reckless mode, feeling very mischievous, and lack concern for the well being of others. Normally caused by consuming lots of alcohol."
-         Answer: "Goblin Mode"
+         Question: "One of the Baudelaire orphans, One of the children in Charlie and The Chocolate Factory"
+         Answer: "Violet"
          Worth: 400
       3:
-         Question: "THE NEW RIZZ KING, the number 1 college football prospect in the country."
-         Answer: "Baby Gronk"
+         Question: "Catwoman, Shakespeare's wife"
+         Answer: "Anne Hathaway"
          Worth: 600
       4:
-         Question: "Is a very old clown, also can be used to insult others"
-         Answer: "Bozo"
+         Question: "Hank Pymm, The Vulture"
+         Answer: "Michael Douglas"
          Worth: 800
       5:
-         Question: "A practice particular to engineering students at the University of Saskatchewan. Involves stunting, painting things red, and hanging cars from bridges."
-         Answer: "Gooning"
+         Question: "Scottish actor in Succession, Physicist and musician"
+         Answer: "Brian Cox"
          Worth: 1000
-         daily_double: 1
    cat_4:
-      Name: "Um Actually"
+      Name: "Geoguessr"
       1:
-         Question: "The 2011 game Minecraft, is a singleplayer sandbox game where you can create a world in either Survival, Creative or hardcore mode."
-         Answer: "Actually it has multiplayer"
+         Question: "In this country you can go any speed on the autobahn and visit the Brandenburg Gate."
+         Answer: "Germany"
          Worth: 200
       2:
-         Question: "The DoggoMain SMP, began on the 9th of January 2021, and followed a very brief and incomplete storyline where I teamed up with Adam, who was scared of sheep. Later the server was rebranded for a small Christmas story."
-         Answer: "Actually it was called the Doggo SMP"
+         Question: "In this country you can venture through the Amazon rainforest and climb Machu Picchu."
+         Answer: "Peru"
          Worth: 400
       3:
-         Question: "The first verse of Justin Timberlake's 'It's gonna be me' is 'You might been hurt, babe' 'That ain't no lie' 'You've seen them all come and go, oh' 'I remember you told me' 'That it made you believe in' 'No man, no cry' 'Maybe that's why'"
-         Answer: "Actually it was an NSUNC song"
+         Question: "In this city you can stay at The Venetian and visit the Neon Museum."
+         Answer: "Las Vegas"
          Worth: 600
       4:
-         Question: "Hugh Campbell Jr, Billy Butchers 'Canary', falls in love with Annie April, a member of 'The Seven' who goes by the alias 'Starlight'. She was recruited into The Seven after an interview following Lamplighters retirement."
-         Answer: "Actually Annie's name is Annie January"
+         Question: "In this hotel chain you can safely stay in exchange for tokens, unless excommunicated."
+         Answer: "The Continental"
          Worth: 800
       5:
-         Question: "Scott Pilgrim, the bassist for Sex Bob-omb, develops a crush on a delivery girl for Amazon.com named Ramona Flowers. In order to date Ramona, Scott must first defeat her 'League of Evil Exes,' a group of six ex-boyfriends and one ex-girlfriend."
-         Answer: "Actually Ramona works for Amazon.ca"
+         Question: "In this 'impenetrable city' you can visit the crystal catacombs."
+         Answer: "Ba Sing Se"
          Worth: 1000
    cat_5:
-      Name: "Dungeons & Dragons"
+      Name: "Films in a sentence"
       1:
-         Question: "You play as a bullet in this rogue like dungeon crawler."
-         Answer: "Enter the Gungeon"
+         Question: "Who you gonna call?"
+         Answer: "Ghostbusters"
          Worth: 200
       2:
-         Question: "This actor played Smaug the dragon in The Hobbit."
-         Answer: "Benedict Cumberbatch"
+         Question: "They were 7... and they fought like 700."
+         Answer: "The Magnificent Seven"
          Worth: 400
       3:
-         Question: "This is the next year of the dragon."
-         Answer: "2024"
+         Question: "Escape or die frying."
+         Answer: "Chicken Run"
          Worth: 600
       4:
-         Question: "Piccolo from Dragon Ball Z is this race."
-         Answer: "Namekian"
+         Question: "Check-in. Relax. Take a shower."
+         Answer: "Psycho"
          Worth: 800
       5:
-         Question: "Ansilvund, Volskygge and Yngvild are all examples of this."
-         Answer: "Dungeons in Skyrim"
+         Question: "Unwittingly he trained a dolphin to kill the President of the United States."
+         Answer: "Day of the Dolphin"
          Worth: 1000
    cat_6:
-      Name: "???"
+      Name: "Terminology 101"
       1:
-         Question: "Name the flag"
-         Answer: "France"
-         Image: france
+         Question: "Unlucky for some is the name for this number in bingo"
+         Answer: "13"
          Worth: 200
       2:
-         Question: "Name the flag"
-         Answer: "Colombia"
-         Image: colombia
+         Question: "Czar, Shah and Sultan are all terms for this type of person."
+         Answer: "Ruler"
          Worth: 400
       3:
-         Question: "Name the flag"
-         Answer: "Palestine"
-         Image: palestine
+         Question: "Albatross and mulligan are both terms used in this sport."
+         Answer: "Golf"
          Worth: 600
+         daily_double: 1
       4:
-         Question: "Name the flag"
-         Answer: "Laos"
-         Image: laos
+         Question: "This is the highest scoring hand type you can have in Texas Hold 'Em Poker."
+         Answer: "Straight Flush"
          Worth: 800
       5:
-         Question: "Name the flag"
-         Answer: "Namibia"
-         Image: namibia
-         Worth: 1000
-   cat_7:
-      Name: "Logic"
-      1:
-         Question: "Name a five headed dragon in Yu-Gi-Oh!"
-         Answer: "Five-Headed Dragon"
-         Worth: 200
-      2:
-         Question: "B is always true if A is true. If A is false, what do we know about B?"
-         Answer: "Nothing"
-         Worth: 400
-      3:
-         Question: "This 11 letter word is most commonly spelled incorrectly."
-         Answer: "Incorrectly"
-         Worth: 600
-      4:
-         Question: "This Greek philosopher, taught by Plato, first studied systematic logic."
-         Answer: "Aristotle"
-         Worth: 800
-      5:
-         Question: "This is the contrapositive of the statement 'If it is raining, I get wet'"
-         Answer: "If I don't get wet, it's not raining"
+         Question: "Ballerina is the term for rolling double of this number on dice."
+         Answer: "2"
          Worth: 1000
          
 final:
-   Question: "In darts, what is the lowest score you &ccan't &rachieve by throwing a single dart?"
-   Category: "Logic"
-   Answer: "23"
+   Category: "Todays Game"
+   Question: "This is the total sum of every number mentioned in this quiz excluding point values. (Closest wins)"
+   Answer: "18,689"

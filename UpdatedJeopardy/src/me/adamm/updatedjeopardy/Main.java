@@ -15,6 +15,7 @@ import me.adamm.updatedjeopardy.commands.JAnswerCommand;
 import me.adamm.updatedjeopardy.commands.JAskCommand;
 import me.adamm.updatedjeopardy.commands.JBetCommand;
 import me.adamm.updatedjeopardy.commands.JFinalCommand;
+import me.adamm.updatedjeopardy.commands.JHelpCommand;
 import me.adamm.updatedjeopardy.commands.JLoadCommand;
 import me.adamm.updatedjeopardy.commands.JLoadImageCommand;
 import me.adamm.updatedjeopardy.commands.JPlayerCommand;
@@ -42,10 +43,7 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		
-		// Set up config files
-		getConfig().options().copyDefaults();
-		saveDefaultConfig();
-		
+		// Set up config files	
 		ImageConfig.setup();
 		ImageConfig.get().options().copyDefaults();
 		ImageConfig.save();
@@ -71,6 +69,7 @@ public class Main extends JavaPlugin {
 		new JSkipCommand(this);
 		new JSaveImageCommand(this);
 		new JLoadImageCommand(this);
+		new JHelpCommand(this);
 		
 		new VanishCommand(this);
 		
