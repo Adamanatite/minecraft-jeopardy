@@ -34,7 +34,11 @@ public class JRemoveCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
-		Game game = plugin.getGame();
+		// Ensure sender is admin
+		if(!sender.isOp()) {
+			sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
+			return false;
+		}
 		
 		// Ensure correct command format (player in game's name and valid score number)
 		if(args.length != 2) {
@@ -42,6 +46,7 @@ public class JRemoveCommand implements CommandExecutor {
 			return false;
 		}
 		
+		Game game = plugin.getGame();
 		Player p = Bukkit.getPlayer(args[0]);
 		
 		if(p == null) {

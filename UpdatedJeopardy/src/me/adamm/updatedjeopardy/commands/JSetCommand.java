@@ -35,7 +35,11 @@ public class JSetCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
-		Game game = plugin.getGame();
+		// Ensure sender is admin
+		if(!sender.isOp()) {
+			sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
+			return false;
+		}
 		
 		// Ensure correct command usage (valid player in game and valid point amount)
 		if(args.length != 2) {
@@ -43,6 +47,7 @@ public class JSetCommand implements CommandExecutor {
 			return false;
 		}
 		
+		Game game = plugin.getGame();
 		Player p = Bukkit.getPlayer(args[0]);
 		
 		if(p == null) {

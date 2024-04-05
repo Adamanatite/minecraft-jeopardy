@@ -35,7 +35,11 @@ public class JAddCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
-		Game game = plugin.getGame();
+		// Ensure sender is admin
+		if(!sender.isOp()) {
+			sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
+			return false;
+		}
 		
 		// Ensure correct command format (player in games name then valid score number)
 		if(args.length != 2) {
@@ -43,6 +47,7 @@ public class JAddCommand implements CommandExecutor {
 			return false;
 		}
 		
+		Game game = plugin.getGame();
 		Player p = Bukkit.getPlayer(args[0]);
 		
 		if(p == null) {
