@@ -14,13 +14,14 @@ import me.adamm.updatedjeopardy.classes.Game;
 import me.adamm.updatedjeopardy.classes.JPlayer;
 import me.adamm.updatedjeopardy.classes.Utils;
 
+/* Command for managing the players in the game */
 public class JPlayerCommand implements CommandExecutor {
-	/*Reference to main class*/
+	/* Reference to main class */
 	private Main plugin;
 	
-	/*Class constructor*/
+	/* Class constructor */
 	public JPlayerCommand(Main plugin) {
-		/*Register command with plugin*/
+		/* Register command with plugin */
 		this.plugin = plugin;
 		plugin.getCommand("jplayer").setExecutor(this);
 	}
@@ -34,12 +35,21 @@ public class JPlayerCommand implements CommandExecutor {
 		return null;
 	}
 	
+	/**
+	 * Adds, removes, swaps or lists the players in the game
+	 *
+	 * @param sender The command sender
+	 * @param cmd The command executed
+	 * @param label The alias of the command used
+	 * @param args A list of the arguments passed in the command (possibly add/remove/list/swap and 1 or 2 player names)
+	 * @return success If the command was executed successfully or was used incorrectly/had an error
+	 */
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		Game game = plugin.getGame();
 		
-		
+		// List players in game
 		if(args.length == 0 || (args.length == 1 && args[0].equalsIgnoreCase("list"))) {
 			String output = Utils.chat("&2&lCurrent players: &r&a");
 			List<String> players = game.getPlayers();
@@ -51,7 +61,7 @@ public class JPlayerCommand implements CommandExecutor {
 			sender.sendMessage(output.substring(0, output.length() - 2));
 			return true;
 		}
-		
+		// Swap a player in game with a player out of game
 		if(args.length == 3 && args[0].equalsIgnoreCase("swap")) {
 			if(!sender.isOp()) {
 				sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
@@ -78,10 +88,14 @@ public class JPlayerCommand implements CommandExecutor {
 			return true;
 		}
 		
+		// Add/remove players
+		
 		if(!(args.length == 2)) {
 			sender.sendMessage(Utils.chat("&4Invalid command usage: /jplayer <add/remove> (player)"));
 			return false;
 			}
+		
+		// Add player to game if there is space
 		
 		if(args[0].equalsIgnoreCase("add")) {
 			
@@ -106,6 +120,8 @@ public class JPlayerCommand implements CommandExecutor {
 			
 			return true;
 		}
+		
+		// Remove player from game if they are in game
 		
 		if(args[0].equalsIgnoreCase("remove") || args[0].equalsIgnoreCase("rm")) {
 			

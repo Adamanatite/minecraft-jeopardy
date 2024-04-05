@@ -35,11 +35,22 @@ import me.adamm.updatedjeopardy.listeners.JoinVanishListener;
 import me.adamm.updatedjeopardy.listeners.LeaveVanishListener;
 import me.adamm.updatedjeopardy.listeners.PreventRotationListener;
 
+/**
+ * Represents the main class, which is called when the plugin is loaded
+ * 
+ * @author Adam Fairlie <adamfairlie01@gmail.com>
+ */
 public class Main extends JavaPlugin {
 	
+	// The game object used to store information about the game state
 	private Game game;
+	// A list of all the players that are currently invisible (for dealing with joining/leaving players)
 	private List<Player> vanishedPlayers;
 	
+	/**
+	 * Called when the plugin is enabled, dictates load behaviour
+	 * 
+	 */
 	@Override
 	public void onEnable() {
 		
@@ -48,12 +59,15 @@ public class Main extends JavaPlugin {
 		ImageConfig.get().options().copyDefaults();
 		ImageConfig.save();
 		
+		this.vanishedPlayers = new ArrayList<Player>();
+		
 		// Set up game object
 		this.game = new Game(this);
-		this.vanishedPlayers = new ArrayList<Player>();
+		
+		// Ensure game board is not covered up
 		game.coverScreen(Material.AIR);
 		
-		// Initialise commands
+		// Initialise plugin commands
 		new JLoadCommand(this);
 		new JPlayerCommand(this);
 		new JActivateCommand(this);
@@ -70,7 +84,6 @@ public class Main extends JavaPlugin {
 		new JSaveImageCommand(this);
 		new JLoadImageCommand(this);
 		new JHelpCommand(this);
-		
 		new VanishCommand(this);
 		
 		// Initialise listeners
@@ -92,10 +105,22 @@ public class Main extends JavaPlugin {
 		
 	}
 	
+	/**
+	* Returns the game object
+	*
+	* @return      the game object
+	* @see         Game
+	*/
 	public Game getGame() {
 		return this.game;
 	}
 	
+	
+	/**
+	* Returns the list of vanished players
+	*
+	* @return      The list of vanished players
+	*/
 	public List<Player> getVanishedPlayers(){
 		return this.vanishedPlayers;
 	}

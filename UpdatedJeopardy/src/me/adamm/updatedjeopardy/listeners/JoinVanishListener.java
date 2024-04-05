@@ -9,18 +9,23 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import me.adamm.updatedjeopardy.Main;
-
+/** Listener class to ensure when a player joins the vanished players are hidden for them */
 public class JoinVanishListener implements Listener {
-	/*Reference to main class*/
+	/* Reference to main class */
 	private Main plugin;
 	
-	/*Class constructor*/
+	/* Class constructor */
 	public JoinVanishListener(Main plugin) {
-		/*Register listener with plugin*/
+		/* Register listener with plugin */
 		this.plugin = plugin;
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
-
+	
+	/**
+	 * Listens for players joining and hides the vanished players from them
+	 *
+	 * @param e The player join event
+	 */
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
 		

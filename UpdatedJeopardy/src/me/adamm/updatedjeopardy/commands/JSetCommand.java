@@ -11,23 +11,33 @@ import me.adamm.updatedjeopardy.classes.Game;
 import me.adamm.updatedjeopardy.classes.JPlayer;
 import me.adamm.updatedjeopardy.classes.Utils;
 
+/* Command for setting a players point total */
 public class JSetCommand implements CommandExecutor {
-	/*Reference to main class*/
+	/* Reference to main class */
 	private Main plugin;
 	
-	/*Class constructor*/
+	/* Class constructor */
 	public JSetCommand(Main plugin) {
-		/*Register command with plugin*/
+		/* Register command with plugin */
 		this.plugin = plugin;
 		plugin.getCommand("jset").setExecutor(this);
 	}
 	
+	/**
+	 * Sets a players point total to the given amount (for use by the game admins)
+	 *
+	 * @param sender The command sender
+	 * @param cmd The command executed
+	 * @param label The alias of the command used
+	 * @param args A list of the arguments passed in the command (player name and point amount)
+	 * @return success If the command was executed successfully or was used incorrectly/had an error
+	 */
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		Game game = plugin.getGame();
 		
-		
+		// Ensure correct command usage (valid player in game and valid point amount)
 		if(args.length != 2) {
 			sender.sendMessage(Utils.chat("&4Invalid command. Usage: /jset <player> <amount>"));
 			return false;
@@ -46,6 +56,7 @@ public class JSetCommand implements CommandExecutor {
 			return false;	
 		}
 		
+		// Set points to new total
 		try {
 			int points = Integer.parseInt(args[1]);
 			j.setScore(points);

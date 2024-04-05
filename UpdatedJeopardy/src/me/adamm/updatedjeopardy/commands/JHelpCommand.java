@@ -7,18 +7,23 @@ import org.bukkit.command.CommandSender;
 import me.adamm.updatedjeopardy.Main;
 import me.adamm.updatedjeopardy.classes.Utils;
 
+/* Command for the help menu */
 public class JHelpCommand implements CommandExecutor {
-	/*Reference to main class*/
+	/* Reference to main class */
 	private Main plugin;
 	
-	/*Class constructor*/
+	/* Class constructor */
 	public JHelpCommand(Main plugin) {
-		/*Register command with plugin*/
+		/* Register command with plugin */
 		this.plugin = plugin;
 		plugin.getCommand("jhelp").setExecutor(this);
 	}
 	
-	
+	/**
+	 * Sends the command sender the help menu
+	 *
+	 * @param sender The command sender
+	 */
 	private void sendPlayerHelp(CommandSender sender) {
 		sender.sendMessage(Utils.chat("&d------------------------------------------------------"));
 		sender.sendMessage(Utils.chat("&5&lJEOPARDY PLAYER HELP"));
@@ -36,6 +41,12 @@ public class JHelpCommand implements CommandExecutor {
 		
 		sender.sendMessage(Utils.chat("&d------------------------------------------------------"));
 	}
+	
+	/**
+	 * Sends the command sender the admin help menu
+	 *
+	 * @param sender The command sender
+	 */
 	
 	private void sendAdminHelp(CommandSender sender) {
 		sender.sendMessage(Utils.chat("&d------------------------------------------------------"));
@@ -76,6 +87,15 @@ public class JHelpCommand implements CommandExecutor {
 		sender.sendMessage(Utils.chat("&d------------------------------------------------------"));
 	}
 	
+	/**
+	 * Sends the help menu to the command sender
+	 *
+	 * @param sender The command sender
+	 * @param cmd The command executed
+	 * @param label The alias of the command used
+	 * @param args A list of the arguments passed in the command ("admin" or "player" for the different help options)
+	 * @return success If the command was executed successfully or was used incorrectly/had an error
+	 */
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
@@ -94,6 +114,7 @@ public class JHelpCommand implements CommandExecutor {
 			}
 		}
 		
+		// Admin help option
 		if(args[0].equalsIgnoreCase("admin")) {
 			if(sender.isOp()) {
 				this.sendAdminHelp(sender);

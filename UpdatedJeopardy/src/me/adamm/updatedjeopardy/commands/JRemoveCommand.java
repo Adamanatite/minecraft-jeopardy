@@ -10,24 +10,33 @@ import me.adamm.updatedjeopardy.Main;
 import me.adamm.updatedjeopardy.classes.Game;
 import me.adamm.updatedjeopardy.classes.JPlayer;
 import me.adamm.updatedjeopardy.classes.Utils;
-
+/* Command for removing points from a player in the game */
 public class JRemoveCommand implements CommandExecutor {
-	/*Reference to main class*/
+	/* Reference to main class */
 	private Main plugin;
 	
-	/*Class constructor*/
+	/* Class constructor */
 	public JRemoveCommand(Main plugin) {
-		/*Register command with plugin*/
+		/* Register command with plugin */
 		this.plugin = plugin;
 		plugin.getCommand("jremove").setExecutor(this);
 	}
 	
+	/**
+	 * Removes the given number of the points from the player
+	 *
+	 * @param sender The command sender
+	 * @param cmd The command executed
+	 * @param label The alias of the command used
+	 * @param args A list of the arguments passed in the command (the player name and the number of points to remove)
+	 * @return success If the command was executed successfully or was used incorrectly/had an error
+	 */
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		Game game = plugin.getGame();
 		
-		
+		// Ensure correct command format (player in game's name and valid score number)
 		if(args.length != 2) {
 			sender.sendMessage(Utils.chat("&4Invalid command. Usage: /jremove <player> <amount>"));
 			return false;
@@ -45,7 +54,7 @@ public class JRemoveCommand implements CommandExecutor {
 			sender.sendMessage(Utils.chat("&4This player is not in the game."));
 			return false;	
 		}
-		
+		// Remove points from player
 		try {
 			int points = Integer.parseInt(args[1]);
 			j.removeScore(points);

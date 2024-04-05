@@ -11,23 +11,33 @@ import me.adamm.updatedjeopardy.classes.Game;
 import me.adamm.updatedjeopardy.classes.JPlayer;
 import me.adamm.updatedjeopardy.classes.Utils;
 
+/* Command for adding points to players scores */
 public class JAddCommand implements CommandExecutor {
-	/*Reference to main class*/
+	/* Reference to main class */
 	private Main plugin;
 	
-	/*Class constructor*/
+	/* Class constructor */
 	public JAddCommand(Main plugin) {
-		/*Register command with plugin*/
+		/* Register command with plugin */
 		this.plugin = plugin;
 		plugin.getCommand("jadd").setExecutor(this);
 	}
 	
+	/**
+	 * Adds points to the given players score (for use by game admins)
+	 *
+	 * @param sender The command sender
+	 * @param cmd The command executed
+	 * @param label The alias of the command used
+	 * @param args A list of the arguments passed in the command (the player name and number of points to add)
+	 * @return success If the command was executed successfully or was used incorrectly/had an error
+	 */
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		Game game = plugin.getGame();
 		
-		
+		// Ensure correct command format (player in games name then valid score number)
 		if(args.length != 2) {
 			sender.sendMessage(Utils.chat("&4Invalid command. Usage: /jadd <player> <amount>"));
 			return false;
@@ -46,6 +56,7 @@ public class JAddCommand implements CommandExecutor {
 			return false;	
 		}
 		
+		// Add the points to the players score total
 		try {
 			int points = Integer.parseInt(args[1]);
 			j.addScore(points);
