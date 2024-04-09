@@ -41,3 +41,30 @@ commands:
    vanish:
       description: Command for making a player appear or disappear
       aliases: [v]
+permissions:
+   jeopardy.gamemaster:
+      description: Permission for the host / game master of the jeopardy game
+      default: op
+      children:
+         jeopardy.activatebuzzers: true
+         jeopardy.answerquestions: true
+         jeopardy.revealanswer: true
+   jeopardy.gameadmin:
+      description: Permission for game admins of the jeopardy game
+      default: op
+      children:
+         jeopardy.editscores: true
+         jeopardy.askquestions: true
+         jeopardy.startfinal: true
+         jeopardy.adminhelp: true
+         jeopardy.loadboard: true
+         jeopardy.loadimage: true
+         jeopardy.editplayers: true
+         jeopardy.saveimage: true
+         jeopardy.resetgame: true
+         jeopardy.skipquestion: true
+   jeopardy.vanish:
+      description: Permissions for players to toggle their visibility
+      default: op
+      
+         
