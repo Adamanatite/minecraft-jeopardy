@@ -38,7 +38,7 @@ public class JSaveImageCommand implements CommandExecutor {
 			return false;
 		}
 		
-		if(!sender.isOp()) {
+		if(!sender.hasPermission("jeopardy.saveimage")) {
 			sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
 			return false;			
 		}

@@ -59,12 +59,15 @@ permissions:
          jeopardy.adminhelp: true
          jeopardy.loadboard: true
          jeopardy.loadimage: true
-         jeopardy.editplayers: true
+         jeopardy.editplayer: true
          jeopardy.saveimage: true
          jeopardy.resetgame: true
          jeopardy.skipquestion: true
    jeopardy.vanish:
-      description: Permissions for players to toggle their visibility
+      description: Permission for players to toggle their visibility
+      default: op
+   jeopardy.rotateframesduringgame:
+      description: Permission for players to rotate an item frame during a jeopardy game
       default: op
       
          

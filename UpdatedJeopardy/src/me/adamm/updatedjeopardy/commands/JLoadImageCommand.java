@@ -41,7 +41,7 @@ public class JLoadImageCommand implements CommandExecutor {
 			return false;
 		}
 		
-		if(!sender.isOp()) {
+		if(!sender.hasPermission("jeopardy.loadimage")) {
 			sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
 			return false;			
 		}

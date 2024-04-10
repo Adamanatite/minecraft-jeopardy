@@ -32,7 +32,7 @@ public class JRevealCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		// Ensure sender is admin and reveal answer
-		if(sender.isOp()) {
+		if(sender.hasPermission("jeopardy.revealanswer")) {
 			Game game = plugin.getGame();
 			game.revealAnswer();
 			return true;

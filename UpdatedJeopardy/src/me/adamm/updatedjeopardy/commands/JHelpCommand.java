@@ -101,7 +101,7 @@ public class JHelpCommand implements CommandExecutor {
 		
 		// Default help option (send non-admins standard help message, give admins choice
 		if(args.length != 1 || !(args[0].equalsIgnoreCase("admin") || args[0].equalsIgnoreCase("player"))) {
-			if(!sender.isOp()) {
+			if(!sender.hasPermission("jeopardy.adminhelp")) {
 				this.sendPlayerHelp(sender);
 				return true;
 			} else {
@@ -116,7 +116,7 @@ public class JHelpCommand implements CommandExecutor {
 		
 		// Admin help option
 		if(args[0].equalsIgnoreCase("admin")) {
-			if(sender.isOp()) {
+			if(sender.hasPermission("jeopardy.adminhelp")) {
 				this.sendAdminHelp(sender);
 			} else {
 				sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));

@@ -35,7 +35,7 @@ public class JRemoveCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		// Ensure sender is admin
-		if(!sender.isOp()) {
+		if(!sender.hasPermission("jeopardy.editscores")) {
 			sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
 			return false;
 		}

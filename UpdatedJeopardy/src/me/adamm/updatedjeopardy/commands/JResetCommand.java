@@ -33,7 +33,7 @@ public class JResetCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		// Ensure sender is admin and reset game
-		if(sender.isOp()) {
+		if(sender.hasPermission("jeopardy.resetgame")) {
 			Game game = plugin.getGame();
 			game.resetGame();
 			sender.sendMessage(Utils.chat("&aSuccessfully reset game!"));

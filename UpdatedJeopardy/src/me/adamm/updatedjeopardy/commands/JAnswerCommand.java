@@ -38,7 +38,7 @@ public class JAnswerCommand implements CommandExecutor {
 			return false;
 		}
 		
-		if(sender.isOp()) {
+		if(sender.hasPermission("jeopardy.answerquestions")) {
 			// Give correct or incorrect answer
 			try {
 				int answer = Integer.parseInt(args[0]);

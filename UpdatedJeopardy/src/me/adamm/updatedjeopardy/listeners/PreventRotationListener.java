@@ -30,7 +30,7 @@ public class PreventRotationListener implements Listener {
 	@EventHandler
 	public void onClick(PlayerInteractEntityEvent e) {
 		// Stop non-admin players from rotating item frames during a jeopardy game
-		if(e.getRightClicked() instanceof ItemFrame && !(e.getPlayer().isOp()) && !((ItemFrame)e.getRightClicked()).getItem().getType().equals(Material.AIR)){
+		if(e.getRightClicked() instanceof ItemFrame && !(e.getPlayer().hasPermission("jeopardy.rotateframesduringgame")) && !((ItemFrame)e.getRightClicked()).getItem().getType().equals(Material.AIR)){
 			e.setCancelled(true);
 		}
 	}

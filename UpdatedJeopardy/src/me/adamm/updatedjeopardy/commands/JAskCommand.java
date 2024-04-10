@@ -38,7 +38,7 @@ public class JAskCommand implements CommandExecutor {
 			return false;
 		}
 		
-		if(sender.isOp()) {
+		if(sender.hasPermission("jeopardy.askquestions")) {
 			try {
 				int category = Integer.parseInt(args[0]);
 				int question = Integer.parseInt(args[1]);

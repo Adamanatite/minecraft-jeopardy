@@ -574,7 +574,7 @@ public class Game {
 	public void getBet(int bet, JPlayer j) {
 		
 		// Daily double case
-		if(this.currentQuestion != null && this.currentQuestion.isDailyDouble()) {
+		if(this.currentQuestion != null && this.currentQuestion.isDailyDouble() && j.equals(this.playerBuzzed)) {
 			this.currentQuestion.setWorth(bet);
 			askCurrentQuestion();
 			return;

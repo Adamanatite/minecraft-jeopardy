@@ -36,7 +36,7 @@ public class JLoadCommand implements CommandExecutor {
 			return false;
 		}
 		
-		if(sender.isOp()) {
+		if(sender.hasPermission("jeopardy.loadboard")) {
 			// Load board from config if it exists
 			String board_name = args[0].toLowerCase();
 			if(!(plugin.getConfig().contains(board_name))) {

@@ -36,7 +36,7 @@ public class JFinalCommand implements CommandExecutor {
 		
 		Game game = plugin.getGame();
 		// Begin final jeopardy if used by an admin
-		if(args.length == 0 && sender.isOp()) {
+		if(args.length == 0 && sender.hasPermission("jeopardy.startfinal")) {
 			if(!game.isFinal()) {
 				game.askFinalBets();
 				return true;

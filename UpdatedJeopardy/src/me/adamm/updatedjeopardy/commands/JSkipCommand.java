@@ -33,7 +33,7 @@ public class JSkipCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		// Ensure admin use and skip question
-		if(sender.isOp()) {
+		if(sender.hasPermission("jeopardy.skipquestion")) {
 			Game game = plugin.getGame();
 			game.skipQuestion();
 			return true;

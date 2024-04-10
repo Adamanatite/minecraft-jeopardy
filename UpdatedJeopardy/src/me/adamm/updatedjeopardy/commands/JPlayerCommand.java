@@ -63,7 +63,7 @@ public class JPlayerCommand implements CommandExecutor {
 		}
 		// Swap a player in game with a player out of game
 		if(args.length == 3 && args[0].equalsIgnoreCase("swap")) {
-			if(!sender.isOp()) {
+			if(!sender.hasPermission("jeopardy.editplayers")) {
 				sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
 				return false;
 			}
@@ -99,7 +99,7 @@ public class JPlayerCommand implements CommandExecutor {
 		
 		if(args[0].equalsIgnoreCase("add")) {
 			
-			if(!sender.isOp()) {
+			if(!sender.hasPermission("jeopardy.editplayers")) {
 				sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
 				return false;
 			}
@@ -125,7 +125,7 @@ public class JPlayerCommand implements CommandExecutor {
 		
 		if(args[0].equalsIgnoreCase("remove") || args[0].equalsIgnoreCase("rm")) {
 			
-			if(!sender.isOp()) {
+			if(!sender.hasPermission("jeopardy.editplayers")) {
 				sender.sendMessage(Utils.chat("&4You are not authorised to perform this command."));
 				return false;
 			}

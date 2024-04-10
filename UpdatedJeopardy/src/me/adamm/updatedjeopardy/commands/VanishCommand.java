@@ -37,7 +37,7 @@ public class VanishCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		// Ensure user is an admin player
-		if(sender.isOp()) {
+		if(sender.hasPermission("jeopardy.vanish")) {
 			
 			if(!(sender instanceof Player)) {
 				return false;

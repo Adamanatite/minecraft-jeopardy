@@ -31,7 +31,7 @@ public class JActivateCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		// Ensure the user is an admin and activate buzzers
-		if(sender.isOp()) {
+		if(sender.hasPermission("jeopardy.activatebuzzers")) {
 			Game game = plugin.getGame();
 			game.activateBuzzers();
 			return true;
